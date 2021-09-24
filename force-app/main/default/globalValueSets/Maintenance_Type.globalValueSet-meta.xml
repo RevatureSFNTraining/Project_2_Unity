@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Cleaning</fullName>
+        <default>false</default>
+        <label>Cleaning</label>
+    </customValue>
+    <customValue>
+        <fullName>Electrical Work</fullName>
+        <default>false</default>
+        <label>Electrical Work</label>
+    </customValue>
+    <customValue>
+        <fullName>Exterior Work</fullName>
+        <default>false</default>
+        <label>Exterior Work</label>
+    </customValue>
+    <customValue>
+        <fullName>Flooring</fullName>
+        <default>false</default>
+        <label>Flooring</label>
+    </customValue>
+    <customValue>
+        <fullName>HVAC</fullName>
+        <default>false</default>
+        <label>HVAC</label>
+    </customValue>
+    <customValue>
+        <fullName>Landscaping</fullName>
+        <default>false</default>
+        <label>Landscaping</label>
+    </customValue>
+    <customValue>
+        <fullName>Paint</fullName>
+        <default>false</default>
+        <label>Paint</label>
+    </customValue>
+    <customValue>
+        <fullName>Plumbing</fullName>
+        <default>false</default>
+        <label>Plumbing</label>
+    </customValue>
+    <customValue>
+        <fullName>Roofing</fullName>
+        <default>false</default>
+        <label>Roofing</label>
+    </customValue>
+    <masterLabel>Maintenance Type</masterLabel>
+    <sorted>true</sorted>
+</GlobalValueSet>

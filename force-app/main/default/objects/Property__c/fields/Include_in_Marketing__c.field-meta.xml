@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Include_in_Marketing__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Is this property currently on the market for a tenant?</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Is this property currently on the market for a tenant?</inlineHelpText>
+    <label>Include in Marketing</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

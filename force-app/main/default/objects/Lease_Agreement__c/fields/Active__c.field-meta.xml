@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Active__c</fullName>
+    <externalId>false</externalId>
+    <formula>Signed_By_Tenant__c = true &amp;&amp; Signed_By_Property_Owner__c = true  &amp;&amp; Start_Date__c  &lt; TODAY() &amp;&amp; End_Date__c &gt; TODAY()</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Active</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

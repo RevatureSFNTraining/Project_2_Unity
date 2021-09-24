@@ -1,0 +1,61 @@
+<apex:page docType="html-5.0" controller="MNMaintenanceRequestController" showHeader="false" standardStylesheets="false">
+    <apex:stylesheet value="{! $Resource.MNCSS }"/>
+    <apex:form styleClass="formClass">
+      <div class="section1">
+      <div class="sectionTitle">
+        <h1> 
+            Maintenance Request Details
+        </h1>   
+      </div>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Maintenance Type</th>          
+          <th>Preferred Date of Service</th>  
+          <th>Job Scheduled</th>
+          <th>Related Vendor Quotes</th>
+        </tr>
+        <apex:dataTable value="{!mRList}" var="mrs">
+            <tr>
+        <apex:column value="{!mrs.Name}"/>
+        <apex:column value="{!mrs.Maintenance_Type__c}"/>
+        <apex:column value="{!mrs.Preferred_Date_of_Service__c}"/>
+        <apex:column value="{!mrs.Job_Scheduled__c}"/>
+        <apex:column >
+        <apex:dataList value="{!mrs.Vendor_Quotes__r}" var="vq">
+            <apex:outputField value="{!vq.Name}" />
+            <apex:outputField value="{!vq.Hourly_Rate__c}" />
+        </apex:dataList>
+        </apex:column>
+            </tr> 
+          
+        </apex:dataTable>
+      </table>
+      </div>
+      <div class="section2">
+      <div class="sectionTitle">
+        <h1> 
+            Search Maintenance Requests
+        </h1>   
+      </div>
+      <div class="subSection1">
+      <h2 class="subHeading1">
+          Start Date:
+      </h2>
+      <apex:input styleClass="input1" value="{!PrefDateStart}" type="date"/>
+      <h2 class="subHeading2">
+          End Date:
+      </h2>      
+      <apex:input styleClass="input2" value="{!PrefDateEnd}" type="date"/> 
+      <apex:commandButton styleClass="button1" value="Search by Date Range" action="{!SearchByDateRange}" />
+      </div>
+      <div class="subSection2">
+      <apex:commandButton styleClass="button2" value="Search by Jobs Not Scheduled" action="{!SearchByJobsNotScheduled}" />
+      <apex:commandButton styleClass="button2" value="Search by Jobs Scheduled" action="{!SearchByJobsScheduled}" />          
+      </div>
+      <div class="subSection3">
+      <apex:commandButton styleClass="button3" value="Reset Search" action="{!ResetSearch}"/>          
+      </div>
+      </div>
+    </apex:form>
+</apex:page>

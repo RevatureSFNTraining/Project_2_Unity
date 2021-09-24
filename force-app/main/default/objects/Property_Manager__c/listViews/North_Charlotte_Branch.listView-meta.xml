@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>North_Charlotte_Branch</fullName>
+    <columns>NAME</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Branch__c</field>
+        <operation>equals</operation>
+        <value>Charlotte - North</value>
+    </filters>
+    <label>North Charlotte Branch</label>
+</ListView>

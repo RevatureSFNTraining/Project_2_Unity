@@ -1,0 +1,22 @@
+<apex:page controller="PaginatedController" docType="html-5.0">
+    <apex:form >
+        <apex:pageBlock title="Contacts List" id="contacts_list">
+            <apex:pageBlockTable value="{!ConList}" var="c" id="list">
+                <apex:column value="{!c.LastName}"/>
+                <apex:column value="{!c.FirstName}"/>
+                <apex:column value="{!c.Phone}"/>
+                <apex:column value="{!c.Email}"/>
+                <apex:column value="{!c.MailingState}"/>
+            </apex:pageBlockTable>
+            <apex:pageblockButtons >
+            <apex:commandButton value="First Page" reRender="contacts_list" action="{!FirstPage}" disabled="{!prev}"/>
+            <apex:commandButton value="Previous" rerender="contacts_list" action="{!previous}" disabled="{!prev}"/>
+            <apex:commandButton value="Next" rerender="contacts_list" action="{!next}" disabled="{!nxt}"/>
+            <apex:commandButton value="Last Page" rerender="contacts_list" action="{!LastPage}" disabled="{!nxt}"/>
+            </apex:pageblockButtons>
+            <apex:pageBlockSection >
+                <apex:input value="{!LimitSize}" label="Records per Page"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

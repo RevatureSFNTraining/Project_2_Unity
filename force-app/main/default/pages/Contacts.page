@@ -1,0 +1,14 @@
+<apex:page controller="ContactsController">
+    <apex:form >
+        <apex:pageBlock title="Contacts List" id="contacts_list">
+            <apex:pageBlockTable value="{!contactList}" var="c" id="list">
+                <apex:column value="{!c.FirstName}"/>
+                <apex:column value="{!c.LastName}"/>
+                <apex:column value="{!c.Phone}"/>
+                <apex:column value="{!c.Email}"/>
+                <apex:column value="{!c.MailingState}"/>
+            </apex:pageBlockTable>
+            <apex:commandButton value="Show Only CA Contacts" action="{!getCAContacts}" />
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

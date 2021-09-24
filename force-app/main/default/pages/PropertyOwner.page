@@ -1,0 +1,51 @@
+<apex:page standardController="Account" recordSetVar="accounts" >
+    <apex:sectionHeader title="Page" subtitle="Property Owner"/>
+    
+    <!-- Page Block 1 - Example -->
+    <apex:pageBlock title="Property Owner PageBlock">
+        <apex:pageBlockSection title="Property Owner PageBlockSetion">
+            <apex:pageBlockSectionItem >
+                Hello {!$User.FirstName}/ You're viewing {!account.name}'s Contacts!
+            </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+    
+    <!-- Page Block 2 - Create Property Owner -->
+    <apex:form >
+        <apex:pageblock title="Create Property Owner">
+            <apex:pageblockSection title="Account Information" collapsible="false">
+                <apex:inputField value="{!Account.Name}" />
+                <apex:inputField value="{!Account.Type}" />
+                <apex:inputField value="{!Account.Rating}" />
+                <apex:inputField value="{!Account.SLAExpirationDate__c}" />
+            </apex:pageblockSection>
+            <apex:pageblockSection title="Account Address" collapsible="false">
+                <apex:inputField value="{!Account.Phone}" />
+                <apex:inputField value="{!Account.Website}" />
+                <apex:inputField value="{!Account.NumberofLocations__c}" />
+            </apex:pageblockSection>
+            <apex:pageblockButtons location="bottom">
+                <apex:commandButton value="Save" title="Click to Save" action="{!save}"/>          
+                <apex:commandButton value="Cancel" title="Click to cancel" action="{!cancel}"/>
+            </apex:pageblockButtons>
+        </apex:pageblock>
+    </apex:form>
+    
+    
+    
+    <!--Page Block 4 - List Property Owners -->
+    <apex:form >
+        <apex:pageblock title="Property Owner List">
+            <apex:pageblockSection >
+                <apex:pageBlockTable value="{!Accounts}" var="Account">
+                    <apex:column value="{!Account.name}"/>
+                    <apex:column value="{!Account.phone}"/>
+                </apex:pageBlockTable>
+            </apex:pageblockSection>
+            <apex:panelGrid columns="2">
+                <apex:commandLink action="{!previous}">Previous</apex:commandLink>
+                <apex:commandLink action="{!next}">Next</apex:commandLink>
+            </apex:panelGrid>
+        </apex:pageblock>
+    </apex:form>
+</apex:page>

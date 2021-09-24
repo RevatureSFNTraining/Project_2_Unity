@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Active_Contracts</fullName>
+    <columns>NAME</columns>
+    <columns>Account__c</columns>
+    <columns>Start_Date__c</columns>
+    <columns>Management_Fee__c</columns>
+    <columns>Reserve_Fund__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Active__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>Active Contracts</label>
+</ListView>

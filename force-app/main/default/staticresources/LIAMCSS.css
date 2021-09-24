@@ -1,0 +1,93 @@
+.slds-list_horizontal {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 10%;
+    margin-right: 10%;
+    float: center;
+    padding: 20px 0;
+    font-size: 16px;
+    white-space: nowrap;
+    background-color: #38A3A5;
+    color: white;
+}
+.slds-list_vertical {
+    background-color: #38A3A5;
+    color: white;
+}
+h1 {
+    font-size: 50px;
+    text-align:center;
+}
+
+#pagetitle {
+    margin-left: auto;
+	margin-right: auto;
+    float:center;
+    white-space: nowrap;
+    font-size: 2em;
+    background-color: #22577A;
+    color: white;
+    border: small solid #80ED99;
+}
+
+#prop_image {
+    margin-left: auto;
+    margin-right: auto;
+    float: center;
+    text-align: center;
+}
+
+#prop_name {
+    margin-left: auto;
+	margin-right: auto;
+    border-bottom: 10px;
+    border: medium solid #80ED99; 
+    text-align:center;
+    white-space: nowrap;
+    font-size: 1.5em;
+}
+
+.FilterInput {
+    width: 80%;
+	height: 30px;
+}
+
+table tr.separator {
+    height: 15px;
+    border: none;
+}
+
+table tr.endsep {
+    height: 30px;
+    border: none;
+}
+
+table tr {
+    height: 25px;
+    font-size: 1.5em;
+}
+
+.filterbutton {
+    float:center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+ul li {
+    font-size: 1.25em;
+}
+
+tr.border td {
+    background-color: white;
+    color: #38A3A5;
+}
+
+.slds-align_absolute-center {
+    font-size: 1.25em;
+}
+
+
+.pbBody, .pbBody a, .pbBody td, .lbBody a, .lbBodyDescription, .list .headerRow .noRowsHeader {
+    color: #38A3A5;
+}

@@ -1,0 +1,70 @@
+body, .formClass {
+	background-color: white; 
+}
+.section1, .section2 {
+    background-color: #38A3A5;
+    border: medium solid #80ED99;
+    height: 50%;
+    width: 88%;
+    padding: 3% 3% 3% 3%;
+    margin: 3% 3% 3% 3%;
+}
+.sectionTitle {
+    background-color: #22577A;
+	text-align: center;
+    border: medium solid #80ED99;
+    margin: 3% 25% 3% 25%;
+    width: 50%;
+}
+h1 {
+    color: white;
+    font-size: 3em;
+}
+table, h1 {
+    width: 100%; 
+}
+th {
+    font-size: 100%;
+
+}
+tr, th, td {
+    text-align: center;
+    color: #22577A;
+    width: 20%;	
+}
+table, th, tr, td, .subSection1, .subSection2, .subSection3 {
+    background-color: #57CC99;
+    border: medium solid #22577A;    
+}
+
+h2, .input1, .input2, .button1, .button2, .button3 {
+    border: medium solid #80ED99;
+    background-color: #22577A;
+    color: white;
+    
+}
+
+.subsection1 {
+    display: grid;
+    justify-content: center;
+}
+.input1 {
+    grid-column: 2;
+    grid-row: 1;
+}
+.input2 {
+    grid-column: 2;
+    grid-row: 2;
+}
+.subHeading1 {
+    grid-column: 1;
+    grid-row: 1;
+}
+.subHeading2 {
+    grid-column: 1;
+    grid-row: 2;
+}
+.button1 {
+    grid-column: 1;
+    grid-row: 3;
+}

@@ -1,0 +1,138 @@
+<apex:page Controller="LHMarketingListController" applyHtmlTag="false" applyBodyTag="false" showHeader="false">   
+    <apex:slds />
+    <apex:stylesheet value="{! $Resource.LIAMCSS }"/>
+    <div class="slds-scope">
+    <div class="slds-grid">
+    <div class="slds-col slds-size_3-of-4">
+        <apex:form >
+        <apex:pageBlock id="prop_list">
+            <div id="pagetitle">
+                <h1>
+                    Available Properties
+                </h1>                
+            </div>
+            <apex:repeat value="{!PropertyList}" var="prop">
+                <div>
+                    <ul class="slds-list_vertical">
+                        <li id="prop_name">
+                            <apex:outputField value="{!prop.Address__c}"/>
+                        </li>
+                        <li id="prop_image">
+                            <ul class="slds-list_horizontal">
+                                <li>
+                                    <apex:commandButton action="{!previous}" value="PREVIOUS" reRender="prop_list, contact_info" disabled="{!disabledPrev}" styleClass="slds-button slds-button--brand slds-not-selected"></apex:commandButton>                                    
+                                </li>
+                                <li>
+                                    <apex:image url="{!prop.Picture__c}"></apex:image>
+                                </li>
+                                <li>
+                                    <apex:commandButton action="{!next}" value="NEXT" reRender="prop_list, contact_info" disabled="{!disabledNext}" styleClass="slds-button slds-button--brand slds-not-selected"></apex:commandButton>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="slds-list_horizontal">                   
+                        <li>
+                            Zip Code:&nbsp;  <apex:outputField value="{!prop.Zip_Code__c}"/>
+                        </li>
+                        <li>
+                            Rent:&nbsp;  <apex:outputField value="{!prop.Desired_Rent__c}"/>
+                        </li>
+                        <li>
+                            Bedrooms:&nbsp;  <apex:outputField value="{!prop.Bedrooms__c}"/>
+                        </li>
+                        <li>
+                            Bathrooms:&nbsp;  <apex:outputField value="{!prop.Bathrooms__c}"/>
+                        </li>
+                    </ul>
+                </div>
+            </apex:repeat>
+        </apex:pageBlock>
+    </apex:form>
+    </div>
+    <div class="slds-col slds-size_1-of-4">
+        <apex:form >
+            <apex:pageBlock >
+                <div id="pagetitle">
+                    <h1>Filter</h1>                
+                </div>
+                <div id="Contactinfotable">
+                    
+                <!-- Filter options-->
+                <table>
+                    <tr class="separator"/>  
+                    <tr class="border">
+                      <td>Min Bedrooms: </td> 
+                      <td>
+                          <apex:selectList size="1" styleClass="FilterInput" value="{!numberBedrooms}">
+                            <apex:selectOption itemValue="1" itemLabel="1"></apex:selectOption>
+                            <apex:selectOption itemValue="2" itemLabel="2"></apex:selectOption>
+                            <apex:selectOption itemValue="3" itemLabel="3"></apex:selectOption>
+                            <apex:selectOption itemValue="4" itemLabel="4"></apex:selectOption>
+                            <apex:selectOption itemValue="5" itemLabel="5"></apex:selectOption>                          
+                          </apex:selectList>
+                      </td>
+                  </tr>
+                  <tr class="separator"/>
+                  <tr class="border">
+                      <td>Min Bathrooms: </td>
+                      <td>
+                          <apex:selectList styleClass="FilterInput" size="1" label="Choose a minimum number of bathrooms" value="{!numberBathrooms}">
+                            <apex:selectOption itemValue="1" itemLabel="1"></apex:selectOption>
+                            <apex:selectOption itemValue="2" itemLabel="2"></apex:selectOption>
+                            <apex:selectOption itemValue="3" itemLabel="3"></apex:selectOption>
+                            <apex:selectOption itemValue="4" itemLabel="4"></apex:selectOption>
+                            <apex:selectOption itemValue="5" itemLabel="5"></apex:selectOption>
+                          </apex:selectList>
+                      </td>
+                  </tr>
+                  <tr class="separator"/>
+                  <tr class="border">
+                      <td>Max Rent:</td> 
+                      <td><apex:inputText styleClass="FilterInput" value="{!rentFilter}" maxlength="5"/></td>
+                  </tr>
+                  <tr class="separator"/>
+                  <tr class="separator"/>
+                </table>
+                </div>
+                <div  class="slds-align_absolute-center">
+                    <apex:commandButton styleclass="slds-button slds-button--brand slds-not-selected" value="Filter Results" reRender="prop_list, contact_info" />
+                </div>
+            </apex:pageBlock>
+            <apex:pageBlock id="contact_info">
+                <div id="pagetitle">
+                    <h1>Find Out More!</h1>                
+                </div>
+                <div>
+                    <apex:repeat value="{!PropertyList}" var="prop">
+                        <table>
+                            <tr class="separator"/>
+                            <tr class="border">
+                                <td>Branch: </td>
+                                <td><apex:outputField value="{!prop.Property_Manager__r.Branch__r.name}"/></td>
+                            </tr>
+                            <tr class="endsep"/>
+                            <tr class="border">
+                                <td>Property Manager: </td>
+                                <td><apex:outputField value="{!prop.Property_Manager__r.Name}"/></td>
+                            </tr> 
+                            <tr class="endsep"/>
+                            <tr class="border">
+                                <td>Email: </td>
+                                <td><apex:outputField value="{!prop.Property_Manager__r.Email__c}"/></td>
+                            </tr>
+                            <tr class="endsep"/>
+                            <tr class="border">
+                                <td>Phone: </td>
+                                <td><apex:outputField value="{!prop.Property_Manager__r.Phone__c}"/></td>
+                            </tr>
+                            <tr class="endsep"/>
+                        </table>
+                    </apex:repeat>
+                </div>
+            </apex:pageBlock>
+        </apex:form>
+    </div>   
+    </div>
+    </div>
+</apex:page>

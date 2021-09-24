@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Low_Fee_Approval__c</fullName>
+    <externalId>false</externalId>
+    <label>Low Fee Approval</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>N/A</fullName>
+                <default>true</default>
+                <label>N/A</label>
+            </value>
+            <value>
+                <fullName>Approved by Regional Manager</fullName>
+                <default>false</default>
+                <label>Approved by Regional Manager</label>
+            </value>
+            <value>
+                <fullName>Not Approved - Increase Management Fee</fullName>
+                <default>false</default>
+                <label>Not Approved - Increase Management Fee</label>
+            </value>
+            <value>
+                <fullName>Pending Approval</fullName>
+                <default>false</default>
+                <label>Pending Approval</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

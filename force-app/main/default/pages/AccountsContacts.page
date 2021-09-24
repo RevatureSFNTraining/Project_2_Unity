@@ -1,0 +1,14 @@
+<apex:page controller="AccConController" tabStyle="Account">
+    <apex:form >
+        <apex:pageBlock title="Accounts List" id="accounts_list">
+        <apex:repeat value="{!Accounts}" var="acc">
+            <apex:pageBlockSection id="section1" title="{!acc.name}">
+                <apex:pageBlockTable value="{!acc.Contacts}" var="c">
+                    <apex:column value="{!c.name}" />
+                    <apex:column value="{!c.email}"/>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:repeat>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

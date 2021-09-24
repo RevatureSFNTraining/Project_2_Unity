@@ -1,0 +1,12 @@
+<apex:page standardController="Maintenance_Request__c" recordSetVar="Maintenance_Requests" sidebar="false">
+  <apex:pageBlock title="Maintenance Request Details">
+    <apex:form >
+      <apex:pageBlockTable value="{!Maintenance_Requests}" var="mrs" id="list">
+        <apex:column value="{!mrs.Name}"/>
+        <apex:column value="{!mrs.Estimated_Cost__c}"/>
+        <apex:column value="{!mrs.Maintenance_Type__c}"/>
+        <apex:column value="{!mrs.Preferred_Date_of_Service__c}"/>
+      </apex:pageBlockTable>
+    </apex:form>
+  </apex:pageBlock>
+</apex:page>
