@@ -1,0 +1,11 @@
+<aura:component>
+    <aura:attribute name="specialties" type="Set" access="private" default="['Cleaning', 'Electrical Work', 'Exterior Work', 'Flooring', 'HVAC', 'Landscaping', 'Paint', 'Roofing', 'Plumbing']" />
+    <lightning:select name="selectedSpecialty" label="Select specialty:">
+        <option value="">Choose a specialty...</option>
+        <aura:iteration items="{!v.specialties}" var="specialty">
+            <option value="{!specialty}">{!specialty}</option>
+        </aura:iteration>
+    </lightning:select>
+
+    <c:maintenanceVendorDetail name="Sample" specialty="Cleaning" />
+</aura:component>	
