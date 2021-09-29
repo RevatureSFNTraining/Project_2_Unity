@@ -1,3 +1,3 @@
 <aura:application>
-    <c:maintenanceVendor />
+    <c:maintenanceVendors />
 </aura:application>	
