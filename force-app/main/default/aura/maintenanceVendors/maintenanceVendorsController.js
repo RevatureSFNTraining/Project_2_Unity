@@ -6,7 +6,10 @@
             orderByField: component.find("sortField").get("v.value")
         });
         vendorListMethod.setCallback(this, function(response) {
-            alert(response.getState());
+            if (response.getState() == "SUCCESS") {
+                var vendorList = response.getReturnValue();
+                component.set("v.vendorList", vendorList);
+            }
         });
         $A.enqueueAction(vendorListMethod);
     }
