@@ -9,16 +9,36 @@
         $A.enqueueAction(specialtiesMethod);
     },
 
-    getVendorList : function(component, specialty, sortField) {
+    getVendorCount : function(component, specialty) {
+        var vendorCountMethod = component.get("c.getVendorCount");
+        vendorCountMethod.setParams({
+            specialty: specialty
+        });
+        vendorCountMethod.setCallback(this, function(response) {
+            if (response.getState() == "SUCCESS") {
+                var totalRecords = response.getReturnValue();
+                var totalPages = Math.ceil(totalRecords / component.get("v.entriesPerPage"));
+                
+                var pageList = [];
+                for (var i = 1; i <= totalPages; i++)
+                    pageList.push(i);
+                component.set("v.pageList", pageList);
+            }
+        });
+        $A.enqueueAction(vendorCountMethod);
+    },
+
+    getVendorList : function(component, specialty, sortField, page) {
         var vendorListMethod = component.get("c.getVendorList");
         vendorListMethod.setParams({
             specialty: specialty,
-            orderByField: sortField
+            orderByField: sortField,
+            limitRecords: component.get("v.entriesPerPage"),
+            offset: (page - 1) * component.get("v.entriesPerPage")
         });
         vendorListMethod.setCallback(this, function(response) {
             if (response.getState() == "SUCCESS") {
-                var vendorList = response.getReturnValue();
-                component.set("v.vendorList", vendorList);
+                component.set("v.vendorList", response.getReturnValue());
             }
         });
         $A.enqueueAction(vendorListMethod);

@@ -1,6 +1,8 @@
 <aura:component controller="MaintenanceVendorAuraController">
     <aura:attribute name="specialties" type="List" access="private" />
     <aura:attribute name="vendorList" type="List" access="private" default="[]" />
+    <aura:attribute name="pageList" type="List" access="private" default="[1]" />
+    <aura:attribute name="entriesPerPage" type="integer" access="private" default="10" />
     <aura:handler name="init" value="{!this}" action="{!c.initialize}" />
 
     <lightning:select aura:id="selectedSpecialty" onchange="{!c.filterBySpecialty}" label="Select specialty:">
@@ -9,10 +11,15 @@
             <option value="{!specialty}">{!specialty}</option>
         </aura:iteration>
     </lightning:select>
-    <lightning:select aura:id="sortField" onchange="{!c.filterBySpecialty}" label="Sort by:">
+    <lightning:select aura:id="sortField" onchange="{!c.selectSortAndPage}" label="Sort by:">
         <option value="">-</option>
         <option value="Branch__c">Branch</option>
         <option value="Name">Vendor Name</option>
+    </lightning:select>
+    <lightning:select aura:id="page" onchange="{!c.selectSortAndPage}" label="Page Number">
+        <aura:iteration items="{!v.pageList}" var="page">
+            <option value="{!page}">{!page}</option>
+        </aura:iteration>
     </lightning:select>
 
     <lightning:card title="Vendor List">
