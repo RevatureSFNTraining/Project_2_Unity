@@ -14,6 +14,6 @@
 }
 .THIS .key {
     font-weight: bold;
-
-    width: 50%;
+    text-align: right;
+    width: 100px;
 }
