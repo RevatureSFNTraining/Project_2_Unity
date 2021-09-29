@@ -3,12 +3,13 @@
     <aura:attribute name="vendorList" type="List" access="private" default="[]" />
 
     <lightning:select aura:id="selectedSpecialty" onchange="{!c.filterBySpecialty}" label="Select specialty:">
-        <option value="">Choose a specialty...</option>
+        <option value="">-</option>
         <aura:iteration items="{!v.specialties}" var="specialty">
             <option value="{!specialty}">{!specialty}</option>
         </aura:iteration>
     </lightning:select>
     <lightning:select aura:id="sortField" onchange="{!c.filterBySpecialty}" label="Sort by:">
+        <option value="">-</option>
         <option value="Branch__c">Branch</option>
         <option value="Name">Vendor Name</option>
     </lightning:select>
