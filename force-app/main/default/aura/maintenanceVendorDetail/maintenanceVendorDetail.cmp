@@ -25,7 +25,7 @@
                 </tr>
                 <tr>
                     <td class="key">E-mail:</td>
-                    <td class="value"><lightning:formattedEmail value="{!v.email}"/></td>
+                    <td class="value"><lightning:formattedEmail value="{!v.email}" hideIcon="true" /></td>
                 </tr>
                 <tr>
                     <td class="key">Phone:</td>
