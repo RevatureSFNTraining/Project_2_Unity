@@ -1,5 +1,6 @@
 ({
     initialize : function(component, event, helper) {
+        helper.getSpecialties(component);
         helper.getVendorList(component, "", "");
     },
 
