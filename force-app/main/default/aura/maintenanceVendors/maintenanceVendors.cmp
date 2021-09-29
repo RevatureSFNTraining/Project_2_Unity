@@ -1,6 +1,7 @@
 <aura:component controller="MaintenanceVendorAuraController">
     <aura:attribute name="specialties" type="Set" access="private" default="['Cleaning', 'Electrical Work', 'Exterior Work', 'Flooring', 'HVAC', 'Landscaping', 'Paint', 'Roofing', 'Plumbing']" />
     <aura:attribute name="vendorList" type="List" access="private" default="[]" />
+    <aura:handler name="init" value="{!this}" action="{!c.initialize}" />
 
     <lightning:select aura:id="selectedSpecialty" onchange="{!c.filterBySpecialty}" label="Select specialty:">
         <option value="">-</option>
