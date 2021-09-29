@@ -12,7 +12,6 @@
             </aura:iteration>
         </lightning:select>
         <lightning:select aura:id="sortField" onchange="{!c.selectSortAndPage}" label="Sort by:">
-            <option value="">-</option>
             <option value="Branch__r.Name">Branch</option>
             <option value="Name">Vendor Name</option>
         </lightning:select>

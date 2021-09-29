@@ -2,7 +2,7 @@
     initialize : function(component, event, helper) {
         helper.getSpecialties(component);
         helper.getVendorCount(component);
-        helper.getVendorList(component, "", "", 1, 5);
+        helper.getVendorList(component, "", "Branch__r.Name", 1, 5);
     },
 
     filterBySpecialty : function(component, event, helper) {
