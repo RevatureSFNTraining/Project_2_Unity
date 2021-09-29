@@ -17,7 +17,7 @@
         vendorCountMethod.setCallback(this, function(response) {
             if (response.getState() == "SUCCESS") {
                 var totalRecords = response.getReturnValue();
-                var totalPages = Math.ceil(totalRecords / component.get("v.entriesPerPage"));
+                var totalPages = Math.ceil(totalRecords / component.find("entriesPerPage").get("v.value"));
                 
                 var pageList = [];
                 for (var i = 1; i <= totalPages; i++)
@@ -30,11 +30,12 @@
 
     getVendorList : function(component, specialty, sortField, page) {
         var vendorListMethod = component.get("c.getVendorList");
+        var entriesPerPage = component.find("entriesPerPage").get("v.value");
         vendorListMethod.setParams({
             specialty: specialty,
             orderByField: sortField,
-            limitRecords: component.get("v.entriesPerPage"),
-            offset: (page - 1) * component.get("v.entriesPerPage")
+            limitRecords: entriesPerPage,
+            offset: (page - 1) * entriesPerPage
         });
         vendorListMethod.setCallback(this, function(response) {
             if (response.getState() == "SUCCESS") {
