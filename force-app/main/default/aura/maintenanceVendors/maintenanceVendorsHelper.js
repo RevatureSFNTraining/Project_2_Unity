@@ -28,9 +28,8 @@
         $A.enqueueAction(vendorCountMethod);
     },
 
-    getVendorList : function(component, specialty, sortField, page) {
+    getVendorList : function(component, specialty, sortField, page, entriesPerPage) {
         var vendorListMethod = component.get("c.getVendorList");
-        var entriesPerPage = component.find("entriesPerPage").get("v.value");
         vendorListMethod.setParams({
             specialty: specialty,
             orderByField: sortField,
