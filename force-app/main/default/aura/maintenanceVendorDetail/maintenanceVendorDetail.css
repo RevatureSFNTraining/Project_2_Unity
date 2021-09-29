@@ -1,2 +1,19 @@
 .THIS {
+    border-style: dashed;
+    border-width: 2px;
+
+    margin: 8px;
+    padding: 4px;
+}
+.THIS th {
+    padding: 8px;
+}
+.THIS td {
+    font-size: 16px;
+    padding: 8px;
+}
+.THIS .key {
+    font-weight: bold;
+
+    width: 50%;
 }
