@@ -8,5 +8,13 @@
 .THIS .key {
     font-weight: bold;
     text-align: right;
-    width: 100px;
+
+    width: 50%;
+}
+.THIS .value {
+    width: 50%;
+}
+.THIS .vendor_name {
+    font-size: 28px;
+    text-align: center;
 }

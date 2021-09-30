@@ -8,8 +8,13 @@
     <aura:attribute name="phone" type="String" />
 
     <!--Component Layout-->
-    <lightning:card title="{!v.name}">
+    <lightning:card>
         <table>
+            <thead>
+                <tr>
+                    <th class="vendor_name" colspan="2">{!v.name}</th>
+                </tr>
+            </thead>
             <tbody>
                 <tr>
                     <td class="key">Specialty:</td>
