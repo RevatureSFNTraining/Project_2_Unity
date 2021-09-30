@@ -1,3 +1,25 @@
 <aura:component>
-
+    <div class="slds-grid slds-wrap slds-gutters">
+        <div id="component-header" class="slds-col slds-size_1-of-1 slds-var-m-bottom_small">
+            <lightning:card>
+                <aura:set attribute="title">
+                    <h1 class="slds-text-heading_large">Income Expense Reports</h1>
+                </aura:set>
+            </lightning:card>
+        </div>
+        <div id="rent-col" class="slds-col slds-size_1-of-2 slds-var-m-top_small">
+            <lightning:card>
+                <aura:set attribute="title">
+                    <h2 class="slds-text-heading_medium">Rent</h2>
+                </aura:set>
+            </lightning:card>
+        </div>
+        <div id="expenses-col" class="slds-col slds-size_1-of-2 slds-var-m-top_small">
+            <lightning:card>
+                <aura:set attribute="title">
+                    <h2 class="slds-text-heading_medium">Expenses</h2>
+                </aura:set>
+            </lightning:card>
+        </div>
+    </div>
 </aura:component>	
