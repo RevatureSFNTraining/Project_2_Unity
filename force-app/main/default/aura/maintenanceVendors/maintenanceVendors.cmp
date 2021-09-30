@@ -20,16 +20,17 @@
             <option value="10">10</option>
             <option value="20">20</option>
         </lightning:select>
-        <lightning:select aura:id="page" onchange="{!c.selectSortAndPage}" label="Page Number">
-            <aura:iteration items="{!v.pageList}" var="page">
-                <option value="{!page}">{!page}</option>
-            </aura:iteration>
-        </lightning:select>
     </lightning:card>
 
     <lightning:card title="Vendor List">
         <aura:iteration items="{!v.vendorList}" var="vendor">
             <c:maintenanceVendorDetail name="{!vendor.Name}" specialty="{!vendor.Specialty__c}" manager="{!vendor.Manager_Name__c}" branch="{!vendor.Branch__r.Name}" email="{!vendor.Email__c}" phone="{!vendor.Primary_Phone__c}" />
         </aura:iteration>
+        
+        <lightning:select aura:id="page" onchange="{!c.selectSortAndPage}" label="Page Number">
+            <aura:iteration items="{!v.pageList}" var="page">
+                <option value="{!page}">{!page}</option>
+            </aura:iteration>
+        </lightning:select>
     </lightning:card>
 </aura:component>	
