@@ -5,7 +5,7 @@
         helper.getVendorList(component, "", "Branch__r.Name", 1, 5);
     },
 
-    filterBySpecialty : function(component, event, helper) {
+    filter : function(component, event, helper) {
         var specialty = component.find("selectedSpecialty").get("v.value");
         var sortField = component.find("sortField").get("v.value");
         var entriesPerPage = component.find("entriesPerPage").get("v.value");

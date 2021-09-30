@@ -5,7 +5,7 @@
     <aura:handler name="init" value="{!this}" action="{!c.initialize}" />
 
     <lightning:card title="Sorting and Filtering">
-        <lightning:select aura:id="selectedSpecialty" onchange="{!c.filterBySpecialty}" label="Select specialty:">
+        <lightning:select aura:id="selectedSpecialty" onchange="{!c.filter}" label="Select specialty:">
             <option value="">-</option>
             <aura:iteration items="{!v.specialties}" var="specialty">
                 <option value="{!specialty}">{!specialty}</option>
@@ -15,7 +15,7 @@
             <option value="Branch__r.Name">Branch</option>
             <option value="Name">Vendor Name</option>
         </lightning:select>
-        <lightning:select aura:id="entriesPerPage" onchange="{!c.filterBySpecialty}" label="Entries Per Page">
+        <lightning:select aura:id="entriesPerPage" onchange="{!c.filter}" label="Entries Per Page">
             <option value="5">5</option>
             <option value="10">10</option>
             <option value="20">20</option>
