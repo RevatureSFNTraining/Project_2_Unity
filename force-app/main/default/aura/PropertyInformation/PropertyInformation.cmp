@@ -1,3 +1,16 @@
 <aura:component>
-
+    <aura:component controller="CmTenantController" implements="flexipage:availableForRecordHome,force:hasRecordId" >
+        <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+        <aura:attribute name="prop" type="Property__c"/>
+        <h1>Property </h1>
+        
+        
+        <lightning:recordForm
+            recordId="{!v.prop.Id}" objectApiName="Property__c"
+            layoutType="Full"
+           
+            mode="readonly" 
+            columns="1"/>
+        
+    </aura:component>
 </aura:component>	

@@ -1,3 +1,18 @@
-<aura:component>
-
-</aura:component>	
+<aura:component controller="CmTenantController" implements="flexipage:availableForRecordHome,force:hasRecordId" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+	<aura:attribute name="lease" type="Lease_Agreement__c"/>   
+   
+    <h1> Lease Agreement </h1>
+    
+    <br/>
+  
+      <p> {!v.lease.Name}</p>
+   <p> Lease Start: {!v.lease.Start_Date__c}</p>
+    
+    <p> Lease End: {!v.lease.End_Date__c}</p>
+   
+    
+  <p>  Lease Monthly Payment Amount: {!v.lease.Monthly_Rent_Due__c}</p>
+    
+  
+</aura:component>

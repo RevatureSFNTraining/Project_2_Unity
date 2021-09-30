@@ -1,17 +1,42 @@
-<aura:component  >
-     <aura:attribute name="formatdate" type="Date"/>
-    <aura:attribute name="tenant" type="tenant__c"/>
-    <h1>Tenant Information </h1>
-    <lightning:card title="{!v.tenant.name}" >
+<aura:component controller="CmTenantController" implements="flexipage:availableForRecordHome,force:hasRecordId" >
+   <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="tenant" type="Tenant__c"  />
    
-        <p class="slds-text-heading_medium slds-p-horizontal_small">
-       	Name:  {!v.Tenant.Name}
-        </p>
-         <p class="slds-text-heading_medium slds-p-horizontal_small">
-       	Phone:  {!v.Tenant.Primary_Phone__c}
-        </p>
-         <p class="slds-text-heading_medium slds-p-horizontal_small">
-       	Email:  {!v.Tenant.Email__c}
-        </p>
-    </lightning:card>
+   
+    <h1>Tenant Information </h1>
+   
+    <br/>
+<!--      <p>{!v.tenant.Id}</p>
+    <p>{!v.tenant.Name}</p>
+    
+    <p>{!v.tenant.Primary_Phone__c}</p>
+    
+    <p>{!v.tenant.Email__c}</p>
+       
+-->          
+ 
+ <!--   <aura:attribute name="fields" type="String[]" default="['Name','Email__c']" />
+    <lightning:recordForm
+        recordId="{!v.tenant.Id}" objectApiName="Tenant__c"
+        layoutType="Compact"
+        fields="{!v.fields}"
+        mode="view" 
+        columns="1"/>
+-->
+    <div class="TenantInfo">
+        <lightning:recordEditForm aura:id="recordEditForm"
+                                     recordId="{!v.tenant.Id}"
+                                     objectApiName="Tenant__c"  >
+           
+            <lightning:inputField fieldName="Name" />
+            <lightning:inputField fieldName="Email__c" />  
+            <lightning:inputField fieldName="Primary_Phone__c" />
+        
+            <br/>
+            <lightning:button aura:id="submit" type="submit" label="Update Info" class="slds-m-top_medium" />
+            </lightning:recordEditForm>
+    </div>
+    
+                   
+ <!--   -->
 </aura:component>
