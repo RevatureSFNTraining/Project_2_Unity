@@ -1,42 +1,59 @@
-<aura:component controller="CmTenantController" implements="flexipage:availableForRecordHome,force:hasRecordId" >
-   <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+<aura:component controller="TenantController" implements="flexipage:availableForRecordHome,force:hasRecordId" access="global">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="fields" type="String[]" default="['Name','Phone','Email']" />
     <aura:attribute name="tenant" type="Tenant__c"  />
-   
-   
+    <aura:attribute name="clicked" type="Boolean" default="false"/>
+    
     <h1>Tenant Information </h1>
-   
+    
     <br/>
-<!--      <p>{!v.tenant.Id}</p>
-    <p>{!v.tenant.Name}</p>
-    
-    <p>{!v.tenant.Primary_Phone__c}</p>
-    
-    <p>{!v.tenant.Email__c}</p>
-       
--->          
- 
- <!--   <aura:attribute name="fields" type="String[]" default="['Name','Email__c']" />
-    <lightning:recordForm
-        recordId="{!v.tenant.Id}" objectApiName="Tenant__c"
-        layoutType="Compact"
-        fields="{!v.fields}"
-        mode="view" 
-        columns="1"/>
--->
-    <div class="TenantInfo">
-        <lightning:recordEditForm aura:id="recordEditForm"
-                                     recordId="{!v.tenant.Id}"
-                                     objectApiName="Tenant__c"  >
-           
-            <lightning:inputField fieldName="Name" />
-            <lightning:inputField fieldName="Email__c" />  
-            <lightning:inputField fieldName="Primary_Phone__c" />
+
+    <aura:if isTrue="{!v.clicked}">
+        <div class="TenantInfo">
+    	<lightning:recordEditForm aura:id="recordEditForm"
+                              recordId="{!v.tenant.Id}"
+                              objectApiName="Tenant__c"
+                              density="compact"
+                              onsubmit="{!c.onSubmit}"
+                              >
         
-            <br/>
-            <lightning:button aura:id="submit" type="submit" label="Update Info" class="slds-m-top_medium" />
-            </lightning:recordEditForm>
-    </div>
+        <lightning:inputField fieldName="Name"  />
+        <br/>
+        <lightning:inputField fieldName="Email__c"/>  
+        <br/>
+        <lightning:inputField fieldName="Primary_Phone__c" />
+        
+        <br/>
+        <lightning:button aura:id="submit" type="submit" label="Update Info" class="slds-m-top_medium" />
+            <lightning:button label="Quit" title="Base action" class="slds-m-top_medium" onclick="{! c.handleExit }" />
+        </lightning:recordEditForm>
+        </div>
+        <!-- If update button was not clicked or Quit was pressed -->
+        <aura:set attribute="else">
+             <div class="TenantInfo">
+        	<lightning:recordViewForm aura:id="recordEditForm"
+                              recordId="{!v.tenant.Id}"
+                              objectApiName="Tenant__c"
+                                      
+                                      
+                           >
+        
+        <lightning:outputField fieldName="Name"  />
+        <br/>
+        <lightning:outputField fieldName="Email__c"/>  
+        <br/>
+        <lightning:outputField fieldName="Primary_Phone__c" />
+        <br/>
+          <lightning:button  variant="base" label="Edit" title="Base action" onclick="{! c.handleClick }"/>
+    </lightning:recordViewForm>  
+            </div>  
+        </aura:set>
+    </aura:if>
     
-                   
- <!--   -->
+    <!-- To edit information  -->
+   
+
+    <br/>
+  
+    
 </aura:component>
