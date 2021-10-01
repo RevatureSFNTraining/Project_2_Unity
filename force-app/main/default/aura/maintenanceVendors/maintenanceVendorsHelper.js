@@ -4,6 +4,7 @@
         specialtiesMethod.setCallback(this, function(response) {
             if (response.getState() == "SUCCESS") {
                 component.set("v.specialties", response.getReturnValue());
+                this.cacheSearchParams(component);
                 this.getVendorCount(component);
                 this.getVendorList(component);
             }
@@ -11,11 +12,22 @@
         $A.enqueueAction(specialtiesMethod);
     },
 
-    getVendorCount : function(component, specialty) {
+    cacheSearchParams : function(component) {
+        component.set("v.searchCache", {
+            search: component.find("search").get("v.value"),
+            specialty: component.find("selectedSpecialty").get("v.value"),
+            sortField: component.find("sortField").get("v.value"),
+            entriesPerPage: component.find("entriesPerPage").get("v.value")
+        });
+    },
+
+    getVendorCount : function(component) {
+        const searchCache = component.get("v.searchCache");
+
         var vendorCountMethod = component.get("c.getVendorCount");
         vendorCountMethod.setParams({
-            search: component.find("search").get("v.value"),
-            specialty: component.find("selectedSpecialty").get("v.value")
+            search: searchCache.search,
+            specialty: searchCache.specialty
         });
         vendorCountMethod.setCallback(this, function(response) {
             if (response.getState() == "SUCCESS") {
@@ -37,18 +49,18 @@
     },
 
     getVendorList : function(component, page) {
-        const entriesPerPage = component.find("entriesPerPage").get("v.value");
+        const searchCache = component.get("v.searchCache");
 
         if (page === undefined)
             page = 1;
 
         var vendorListMethod = component.get("c.getVendorList");
         vendorListMethod.setParams({
-            search: component.find("search").get("v.value"),
-            specialty: component.find("selectedSpecialty").get("v.value"),
-            orderByField: component.find("sortField").get("v.value"),
-            limitRecords: entriesPerPage,
-            offset: (page - 1) * entriesPerPage
+            search: searchCache.search,
+            specialty: searchCache.specialty,
+            orderByField: searchCache.orderByField,
+            limitRecords: searchCache.entriesPerPage,
+            offset: (page - 1) * searchCache.entriesPerPage
         });
         vendorListMethod.setCallback(this, function(response) {
             if (response.getState() == "SUCCESS") {
