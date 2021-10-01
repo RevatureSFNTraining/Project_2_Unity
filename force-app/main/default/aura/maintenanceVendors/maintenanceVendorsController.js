@@ -4,6 +4,7 @@
     },
 
     filter : function(component, event, helper) {
+        helper.cacheSearchParams(component);
         helper.getVendorCount(component);
         helper.getVendorList(component);
     },
