@@ -50,6 +50,7 @@
 
     getVendorList : function(component, page) {
         const searchCache = component.get("v.searchCache");
+        component.set("v.isSearching", true);
 
         if (page === undefined)
             page = 1;
@@ -65,6 +66,7 @@
         vendorListMethod.setCallback(this, function(response) {
             if (response.getState() == "SUCCESS") {
                 component.set("v.vendorList", response.getReturnValue());
+                component.set("v.isSearching", false);
             }
         });
         $A.enqueueAction(vendorListMethod);
