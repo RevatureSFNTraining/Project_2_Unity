@@ -1,15 +1,18 @@
 <aura:component controller="TenantController" implements="flexipage:availableForRecordHome,force:hasRecordId" access="global">
+    
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     <aura:attribute name="fields" type="String[]" default="['Name','Phone','Email']" />
     <aura:attribute name="tenant" type="Tenant__c"  />
     <aura:attribute name="clicked" type="Boolean" default="false"/>
     
-    <h1>Tenant Information </h1>
-    
-    <br/>
-
+  <div class="slds-box slds-theme_alt-inverse">
+    </div>  
+   
     <aura:if isTrue="{!v.clicked}">
-        <div class="TenantInfo">
+      
+         <div class="slds-card">
+         
+       <lightning:card title="Tenant">
     	<lightning:recordEditForm aura:id="recordEditForm"
                               recordId="{!v.tenant.Id}"
                               objectApiName="Tenant__c"
@@ -27,33 +30,48 @@
         <lightning:button aura:id="submit" type="submit" label="Update Info" class="slds-m-top_medium" />
             <lightning:button label="Quit" title="Base action" class="slds-m-top_medium" onclick="{! c.handleExit }" />
         </lightning:recordEditForm>
+             </lightning:card>
         </div>
+        
         <!-- If update button was not clicked or Quit was pressed -->
         <aura:set attribute="else">
-             <div class="TenantInfo">
-        	<lightning:recordViewForm aura:id="recordEditForm"
+
+        <div class="slds-card ">
+         
+       <lightning:card title="Tenant">
+                 <lightning:recordViewForm aura:id="recordEditForm"
                               recordId="{!v.tenant.Id}"
                               objectApiName="Tenant__c"
-                                      
-                                      
-                           >
+                              >
+              
+        <lightning:outputField fieldName="Name"   />
         
-        <lightning:outputField fieldName="Name"  />
-        <br/>
         <lightning:outputField fieldName="Email__c"/>  
-        <br/>
+
         <lightning:outputField fieldName="Primary_Phone__c" />
-        <br/>
-          <lightning:button  variant="base" label="Edit" title="Base action" onclick="{! c.handleClick }"/>
+      
+          <lightning:button class="slds-button slds-button_outline-brand"  variant="base" label="Edit" title="Base action" onclick="{! c.handleClick }"/>
     </lightning:recordViewForm>  
-            </div>  
+     </lightning:card>
+            </div> 
         </aura:set>
     </aura:if>
     
-    <!-- To edit information  -->
+    
+  
+    
+   
    
 
     <br/>
+    <div class="slds-grid slds-gutters ">
+  <div class="slds-col">
+   <c:LeaseInformation/>
+        </div>
+   <div class="slds-col">
+    <c:Property/>
+        </div>    
+    </div>
+      
   
-    
 </aura:component>
