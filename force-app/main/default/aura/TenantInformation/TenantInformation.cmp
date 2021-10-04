@@ -4,9 +4,9 @@
     <aura:attribute name="fields" type="String[]" default="['Name','Phone','Email']" />
     <aura:attribute name="tenant" type="Tenant__c"  />
     <aura:attribute name="clicked" type="Boolean" default="false"/>
-    <div class="slds-text-color_default">   
-        <div class="slds-box slds-theme_alt-inverse  slds-text-color_default">
-            
+    
+        <div class=" slds-text-color_default ">
+            <div class="slds-box slds-theme_alt-inverse"></div>
             
             <aura:if isTrue="{!v.clicked}">
                 
@@ -18,7 +18,7 @@
                                                   objectApiName="Tenant__c"
                                                   density="compact"
                                                   onsubmit="{!c.onSubmit}"
-                                                  class=" slds-text-color_default"
+                                                 
                                                   >
                             
                             <lightning:inputField fieldName="Name"  />
@@ -43,23 +43,24 @@
                         <lightning:recordViewForm aura:id="recordEditForm"
                                                   recordId="{!v.tenant.Id}"
                                                   objectApiName="Tenant__c"
-                                                  class=" slds-text-color_default"
+                                                  
                                                   >
                             
                             <lightning:outputField fieldName="Name"   />
-                            
-                            <lightning:outputField fieldName="Email__c"/>  
-                            
+                            <br/>
+                            <lightning:outputField fieldName="Email__c"  />  
+                            <br/>
                             <lightning:outputField fieldName="Primary_Phone__c" />
-                            
+                            <br/>
                             <lightning:button class="slds-button slds-button_outline-brand"  variant="base" label="Edit" title="Base action" onclick="{! c.handleClick }"/>
+                      
                         </lightning:recordViewForm>  
                     </lightning:card>
                     
                     
                 </aura:set>
             </aura:if>
-            
+            <div class="slds-box slds-theme_alt-inverse">
             
             
             
@@ -71,11 +72,12 @@
                 <div class="slds-col">
                     <c:LeaseInformation/>
                 </div>
+             
                 <div class="slds-col">
                     <c:PropertyInformation/>
                 </div>    
             </div>
-            
+            </div>
         </div>  
-    </div>
+  
 </aura:component>
