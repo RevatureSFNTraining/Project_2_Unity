@@ -60,7 +60,7 @@
                     
                 </aura:set>
             </aura:if>
-            <div class="slds-box slds-theme_alt-inverse">
+            <div class="slds-box slds-theme_alt-inverse slds-text-color_default ">
             
             
             
