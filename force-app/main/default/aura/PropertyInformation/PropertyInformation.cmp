@@ -1,4 +1,4 @@
-<aura:component controller="TenantController" implements="flexipage:availableForRecordHome,force:hasRecordId" >
+<aura:component controller="TenantController" implements="forceCommunity:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" >
 	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
 	<aura:attribute name="prop" type="Property__c"/>
     <div class="slds-card ">
