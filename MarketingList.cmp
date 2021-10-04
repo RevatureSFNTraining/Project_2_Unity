@@ -1,4 +1,5 @@
-<aura:component >
+<aura:component controller="MarketingListController" implements="forceCommunity:availableForAllPageTypes">
+    <aura:handler name="init" action="{c.display}" value="{!this}"/>
     <aura:attribute name="properties" type="Property__c[]"/>
     <aura:attribute name="OffsetSize" type="Integer" default="0"/>
  	<aura:attribute name="property" type="Property__c[]"/>
@@ -41,11 +42,11 @@
                     <option value="5">5</option>
                 </lightning:select> 
                 <lightning:input aura:id="rentamount" label="Max Rent"
-                                 name="maxrent" />
+                                 name="maxrent" value="{!numRent}"/>
                 <lightning:button label="Filter Results"
                                   class="slds-m-top_medium"
                                   variant="brand" 
-								  onclick="{!c.filterResult}"/> 
+								  onclick="{!c.filter}"/> 
             </Form>
         </fieldset>
     </div>
