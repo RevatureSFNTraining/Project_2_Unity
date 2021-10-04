@@ -22,15 +22,17 @@
     <div class="slds-grid">
         <div class="slds-col">
             <ul>
+                <li><h2>Names</h2></li>
                 <aura:iteration items="{!v.accounts}" var="account">
-                    <li class="myli"> <h3>{!account.name}</h3> </li>
+                    <li class="myli"> <h3>{!account.Name}</h3> </li>
                 </aura:iteration>
             </ul>
         </div>
         <div class="slds-col">
             <ul>
+                <li><h2>Phones</h2></li>
                 <aura:iteration items="{!v.accounts}" var="account">
-                    <li class="myli"> <h3>{!account.phone}</h3> </li>
+                    <li class="myli"> <h3>{!account.Phone}</h3> </li>
                 </aura:iteration>
             </ul>
         </div>
