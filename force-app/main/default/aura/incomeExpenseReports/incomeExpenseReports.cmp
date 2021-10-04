@@ -1,23 +1,50 @@
 <aura:component>
-    <div class="slds-grid slds-wrap slds-gutters">
+    <div class="slds-theme_alt-inverse slds-text-color_default slds-grid slds-wrap slds-gutters">
         <div id="component-header" class="slds-col slds-size_1-of-1 slds-var-m-bottom_small">
-            <lightning:card>
+            <lightning:card class="slds-var-p-around_medium">
                 <aura:set attribute="title">
-                    <h1 class="slds-text-heading_large">Income Expense Reports</h1>
+                    <h1 class="slds-text-heading_large slds-var-m-bottom_small">Income Expense Reports</h1>
                 </aura:set>
+                <h3 class="slds text-heading_small">Select Month and Year</h3>
+                <div id="month-year-selector" class="slds-grid slds-gutters">
+                    <div class="slds-col slds-size_2-of-3">
+                        <lightning:select name="monthSelector" label="Month" required="true">
+                            <option value="1">1 - January</option>
+                            <option value="2">2 - February</option>
+                            <option value="3">3 - March</option>
+                            <option value="4">4 - April</option>
+                            <option value="5">5 - May</option>
+                            <option value="6">6 - June</option>
+                            <option value="7">7 - July</option>
+                            <option value="8">8 - August</option>
+                            <option value="9">9 - September</option>
+                            <option value="10">10 - October</option>
+                            <option value="11">11 - November</option>
+                            <option value="12">12 - December</option>
+                        </lightning:select>
+                    </div>
+                    <div class="slds-col slds-size_1-of-3">
+                        <lightning:select name="yearSelector" label="Year" required="true">
+                            <option value="2021">2021</option>
+                        </lightning:select>
+                    </div>
+                </div>
             </lightning:card>
         </div>
         <div id="rent-col" class="slds-col slds-size_1-of-2 slds-var-m-top_small">
-            <lightning:card>
+            <lightning:card class="slds-var-p-around_medium">
                 <aura:set attribute="title">
-                    <h2 class="slds-text-heading_medium">Rent</h2>
+                    <h2 class="slds-text-heading_medium slds-var-m-bottom_small">Rent</h2>
                 </aura:set>
+                <p>
+                    Total Rent: <lightning:formattedNumber aura:id="totalRent" style="currency" maximumFractionDigits="2" value="0" />
+                </p>
             </lightning:card>
         </div>
         <div id="expenses-col" class="slds-col slds-size_1-of-2 slds-var-m-top_small">
-            <lightning:card>
+            <lightning:card class="slds-var-p-around_medium">
                 <aura:set attribute="title">
-                    <h2 class="slds-text-heading_medium">Expenses</h2>
+                    <h2 class="slds-text-heading_medium slds-var-m-bottom_small">Expenses</h2>
                 </aura:set>
             </lightning:card>
         </div>
