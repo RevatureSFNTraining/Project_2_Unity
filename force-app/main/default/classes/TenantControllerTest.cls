@@ -4,8 +4,8 @@
 *DateCreated: 9/27/2021
 *DateModified: 9/30/2021
 *Description: 
-*	Tests for 
-*	Tests cover 
+*	Tests for TenantController
+*	Tests covers 100% 
 */
 @isTest
 public class TenantControllerTest {
@@ -56,4 +56,84 @@ public class TenantControllerTest {
         // Verify
         System.assertEquals(null, prop);    
     }
+    
+  @isTest static void Test5() {
+       // create temporary user 
+        Profile p =  [SELECT Id FROM Profile WHERE Name='Standard User'];   
+        User u = new User(Alias = 'testuser', Email = 'testuser@fake.com', EmailEncodingKey='UTF-8', LastName='Testing', LanguageLocaleKey='en_US',
+         LocaleSidKey='en_US', ProfileId = p.Id,
+         TimeZoneSidKey='America/Los_Angeles', UserName='Tenanttestuser@faketest.com');
+
+        System.runAs(u)
+        {
+            Tenant__c ten = new Tenant__c(); 
+            ten.Name = 'test'; 
+            ten.Email__c ='fake@fake.com'; 
+            ten.Primary_Phone__c ='9145083456'; 
+            Lease_Agreement__c lease = new Lease_Agreement__c(); 
+            
+            insert lease; 
+            
+           	ten.Lease_Agreement__c = lease.Id; 
+             ten.User__c = u.Id; 
+            insert ten; 
+             
+            Tenant__c t = TenantController.getTenantInfo();
+             System.assertNotEquals(null, t); 
+        }// end of user run 
+    } // end of test
+      @isTest static void leaseWithUser() {
+       // create temporary user 
+        Profile p =  [SELECT Id FROM Profile WHERE Name='Standard User'];   
+        User u = new User(Alias = 'testuser', Email = 'testuser@fake.com', EmailEncodingKey='UTF-8', LastName='Testing', LanguageLocaleKey='en_US',
+         LocaleSidKey='en_US', ProfileId = p.Id,
+         TimeZoneSidKey='America/Los_Angeles', UserName='Tenanttestuser@faketest.com');
+
+        System.runAs(u)
+        {
+            Tenant__c ten = new Tenant__c(); 
+            ten.Name = 'test'; 
+            ten.Email__c ='fake@fake.com'; 
+            ten.Primary_Phone__c ='9145083456'; 
+            Lease_Agreement__c lease = new Lease_Agreement__c(Name ='test'); 
+            
+            insert lease; 
+            
+           	ten.Lease_Agreement__c = lease.Id; 
+             ten.User__c = u.Id; 
+            insert ten; 
+             
+            Lease_Agreement__c tList = TenantController.getLeaseAgreementInfo();
+              // Verify
+        	System.assertEquals('test', tList.Name);  
+        }// end of user 
+    }// end of test  
+    
+      @isTest static void propWithUser() {
+       // create temporary user 
+        Profile p =  [SELECT Id FROM Profile WHERE Name='Standard User'];   
+        User u = new User(Alias = 'testuser', Email = 'testuser@fake.com', EmailEncodingKey='UTF-8', LastName='Testing', LanguageLocaleKey='en_US',
+         LocaleSidKey='en_US', ProfileId = p.Id,
+         TimeZoneSidKey='America/Los_Angeles', UserName='Tenanttestuser@faketest.com');
+
+        System.runAs(u)
+        {
+            Tenant__c ten = new Tenant__c(); 
+            ten.Name = 'test'; 
+            ten.Email__c ='fake@fake.com'; 
+            ten.Primary_Phone__c ='9145083456'; 
+            Lease_Agreement__c lease = new Lease_Agreement__c(Name ='test'); 
+            
+            insert lease; 
+            
+           	ten.Lease_Agreement__c = lease.Id; 
+             ten.User__c = u.Id; 
+            insert ten; 
+             
+           Property__c prop = TenantController.getPropInfo();
+      
+        // Verify
+        System.assertEquals(null, prop);    
+        }// end of user 
+    }// end of test  
 }

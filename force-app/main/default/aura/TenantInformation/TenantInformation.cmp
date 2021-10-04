@@ -1,4 +1,4 @@
-<aura:component controller="TenantController" implements="flexipage:availableForRecordHome,force:hasRecordId" access="global">
+<aura:component controller="TenantController" implements="flexipage:availableForRecordHome,force:hasRecordId, forceCommunity:availableForAllPageTypes" access="global">
     
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     <aura:attribute name="fields" type="String[]" default="['Name','Phone','Email']" />
@@ -72,7 +72,7 @@
                     <c:LeaseInformation/>
                 </div>
                 <div class="slds-col">
-                    <c:Property/>
+                    <c:PropertyInformation/>
                 </div>    
             </div>
             
