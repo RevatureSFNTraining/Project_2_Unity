@@ -16,21 +16,23 @@
             <lightning:inputField fieldName="Phone" />
             <lightning:inputField fieldName="Website" />
             <lightning:inputField fieldName="NumberofLocations__c" />
-            <lightning:button type="submit" name="Submit" label="submit"/>
+            <lightning:button type="submit" name="submit" label="Submit"/>
         </lightning:recordEditForm>
     </div>
     <div class="slds-grid">
         <div class="slds-col">
             <ul>
+                <li class="slds-text-heading_medium">Names</li>
                 <aura:iteration items="{!v.accounts}" var="account">
-                    <li class="myli"> <h3>{!account.name}</h3> </li>
+                    <li class="myli"> <h3>{!account.Name}</h3> </li>
                 </aura:iteration>
             </ul>
         </div>
         <div class="slds-col">
             <ul>
+                <li class="slds-text-heading_medium">Phones</li>
                 <aura:iteration items="{!v.accounts}" var="account">
-                    <li class="myli"> <h3>{!account.phone}</h3> </li>
+                    <li class="myli"> <h3>{!account.Phone}</h3> </li>
                 </aura:iteration>
             </ul>
         </div>

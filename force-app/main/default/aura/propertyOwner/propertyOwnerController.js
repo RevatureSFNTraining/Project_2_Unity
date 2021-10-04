@@ -1,6 +1,6 @@
 ({
 	init : function(component, event, helper) {
 		helper.init(component);
-        helper.getAccounts(componenet);
+        helper.getAccounts(component);
 	}
 })
