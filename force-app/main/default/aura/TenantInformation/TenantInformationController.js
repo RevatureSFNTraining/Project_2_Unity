@@ -5,7 +5,7 @@
 	},
     handleClick: function (component, event, helper)
     {
-    	console.log("Clicked");
+    	
         helper.buttonHelper(component, event, helper);
 	},
     
@@ -15,7 +15,7 @@
 	},
     onSubmit:function (component, event, helper)
     {
-    	console.log("Submitted");
+    	
          component.set("v.clicked", false);
 	},
     
