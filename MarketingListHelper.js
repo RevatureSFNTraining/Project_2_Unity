@@ -1,5 +1,15 @@
 ({
-	nextProperty : function(component, event, helper) {
+	display : function(component, event, helper) {
+        var showRec = component.get("c.getProperty");
+        var size = component.get("v.OffsetSize");
+        showRec.setParams({numBathrooms : component.get("v.oldnumBath"), numBedrooms : component.get("v.oldnumBed"), maxRent : component.get("v.oldnumRent"), setsize : size});
+        showRec.setCallback(this,function(response) {
+            component.set("v.OffsetSize", size);
+            component.set("v.properties", response.getReturnValue());
+        });
+        $A.enqueueAction(showRec);
+    },
+    nextProperty : function(component, event, helper) {
 		var action = component.get("c.getProperty");
         var size = component.get("v.OffsetSize");
         action.setParams({numBathrooms : component.get("v.oldnumBath"), numBedrooms : component.get("v.oldnumBed"), maxRent : component.get("v.oldnumRent"), setsize : size});
