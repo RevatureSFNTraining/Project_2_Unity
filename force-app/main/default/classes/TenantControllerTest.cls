@@ -58,6 +58,14 @@ public class TenantControllerTest {
         temp.Start_Date__c = System.today();
         temp.End_Date__c = System.today() +100 ;
        
+        // create property associated with lease
+        Property__c prop = new Property__c(Name='leaseProperty');
+		
+        // insert property
+        insert prop;
+        
+        temp.Property__c = prop.Id; 
+        
        	// insert new lease
         insert temp;
 
@@ -107,6 +115,14 @@ public class TenantControllerTest {
             // create lease test
             Lease_Agreement__c lease = new Lease_Agreement__c(Name ='test'); 
             
+            // create Property
+            Property__c testp = new Property__c(Name='nes'); 
+            
+            // insert property
+            insert testp; 
+            
+            lease.Property__c = testp.Id; 
+            
             //insert lease
             insert lease; 
             
@@ -147,6 +163,14 @@ public class TenantControllerTest {
             ten.Primary_Phone__c ='9145083456'; 
           	// create lease 
             Lease_Agreement__c lease = new Lease_Agreement__c(Name ='test'); 
+          
+            // create Property
+            Property__c testp = new Property__c(Name='nes'); 
+            
+            // insert property
+            insert testp; 
+            
+            lease.Property__c = testp.Id; 
             
             //insert lease
             insert lease; 
@@ -186,6 +210,14 @@ public class TenantControllerTest {
             ten.Primary_Phone__c ='9145083456'; 
            // create  associated lease
             Lease_Agreement__c lease = new Lease_Agreement__c(Name ='test'); 
+            
+            // create Property
+            Property__c testp = new Property__c(Name='nes'); 
+            
+            // insert property
+            insert testp; 
+            
+            lease.Property__c = testp.Id; 
             
             // insert lease
             insert lease; 
