@@ -1,6 +1,19 @@
+<!-- 
+Name: PropertyInformation.cmp
+Author: Julia Weakley
+DateCreated: 9/26/2021
+DateModified: 10/5/2021
+Description: 
+ Component for viewing Property information associated with user
+-->
+
 <aura:component controller="TenantController" implements="flexipage:availableForRecordHome,force:hasRecordId" >
-	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
-	<aura:attribute name="prop" type="Property__c"/>
+	<!-- grab property information and set to attribute prop -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+	<!-- attribute that holds information for propery  -->
+    <aura:attribute name="prop" type="Property__c"/>
+    
+    <!-- form for viewing Property information -->
     <div class="slds-card ">
     <lightning:card title="Property">
     <lightning:recordForm
