@@ -1,7 +1,7 @@
 @isTest
 public class homePageTest {
-    private Property__c prop1;
-    private Property__c prop2;
+    private static Property__c prop1;
+    private static Property__c prop2;
     @TestSetup
     static void makeData(){
         prop1 = new Property__c(Desired_Rent__c = 5000, Picture__c = 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.nbcnews.com%2Fnews%2Fus-news%2Fcouple-planned-wedding-florida-mansion-no-one-told-owner-n1264962&psig=AOvVaw27Q_DVHoZhm3UOXvhigzwg&ust=1633615699451000&source=images&cd=vfe&ved=2ahUKEwj49_7s-rXzAhUZOc0KHfaLA5sQjRx6BAgAEAk', Name = 'Expensive Property');
