@@ -1,6 +1,6 @@
 @isTest
 public class propertyOwnerTest {
-    private List<Account> newAccs;
+    private static List<Account> newAccs;
 
     @TestSetup
     static void makeData(){
@@ -16,10 +16,9 @@ public class propertyOwnerTest {
 
     @isTest
     public static void testList() {
-        propertyOwner owner = new propertyOwner();
-        List<Account> testAccs = owner.getAccounts();
+        List<Account> testAccs = propertyOwner.getAccounts();
         for (Integer i = 0; i < newAccs.size(); i++) {
-            system.assertEquals(accs[i], testAccs[i]);
+            system.assertEquals(newAccs[i], testAccs[i]);
         }
     }
 }
