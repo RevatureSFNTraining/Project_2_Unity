@@ -1,4 +1,4 @@
-<aura:component controller="IncomeExpenseAuraController">
+<aura:component controller="IncomeExpenseAuraController" implements="forceCommunity:availableForAllPageTypes">
     <aura:attribute name="properties" type="List" default="[]" />
     <aura:attribute name="hasSelectedProperty" type="Boolean" access="private" default="false" />
     <aura:attribute name="selectedProperty" type="Map" access="private" default="{}" />
@@ -7,7 +7,7 @@
     <aura:attribute name="profit" type="Decimal" access="private" default="0" />
     <aura:handler name="init" value="{!this}" action="{!c.initialize}" />
 
-    <div class="slds-theme_alt-inverse slds-text-color_default slds-grid slds-wrap slds-gutters">
+    <div class="slds-theme_info slds-text-color_default slds-grid slds-wrap slds-gutters">
         <div id="component-header" class="slds-col slds-size_1-of-1 slds-var-m-top_small slds-var-m-bottom_small">
             <lightning:card class="slds-var-p-around_medium">
                 <div id="slds-grid slds-wrap slds-gutters">

@@ -14,9 +14,9 @@
         component.set("v.userId", userId);
     },
 
-    resetForm : function (component) {
-        component.find('accField').forEach(function(f) {
-        f.reset();
-        });
+    resetForm : function(component) {
+        component.find("accField").forEach(function(field) {
+            field.reset();
+        })
     }
 })

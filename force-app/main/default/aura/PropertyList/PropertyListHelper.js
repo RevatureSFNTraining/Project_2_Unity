@@ -12,33 +12,32 @@
     nextProperty : function(component, event, helper) {
 		var action = component.get("c.getProperty");
         var size = component.get("v.OffsetSize");
-        action.setParams({numBathrooms : component.get("v.oldnumBath"), numBedrooms : component.get("v.oldnumBed"), maxRent : component.get("v.oldnumRent"), setsize : size});
         size += 1;
+        action.setParams({numBathrooms : component.get("v.oldnumBath"), numBedrooms : component.get("v.oldnumBed"), maxRent : component.get("v.oldnumRent"), setsize : size});
         action.setCallback(this, function(response) {
-            component.set("v.OffsetSize", size);
-            component.set("v.properties", response.getReturnValue());
+            if (response.getReturnValue().length > 0) {
+                component.set("v.OffsetSize", size);
+                component.set("v.properties", response.getReturnValue());
+            }
         });
         $A.enqueueAction(action);
 	},
     previousProperty : function(component, event) {
 		var getList = component.get("c.getProperty");
         var size = component.get("v.OffsetSize");
-        if(oss > 1) {
         size -= 1;
-        } else {
-            size = 1;
-        }
-        getList.setParams({numBathrooms : component.get("v.oldnumBath"), numBedrooms : component.get("v.oldnumBed"), maxRent : component.get("v.oldnumRent"), setsize : size - 1});
-        
+        getList.setParams({numBathrooms : component.get("v.oldnumBath"), numBedrooms : component.get("v.oldnumBed"), maxRent : component.get("v.oldnumRent"), setsize : size});
         getList.setCallback(this, function(response) {
-            component.set("v.OffsetSize", size);
-            component.set("v.properties", response.getReturnValue());
+            if (response.getReturnValue().length > 0) {
+                component.set("v.OffsetSize", size);
+                component.set("v.properties", response.getReturnValue());
+            }
         });
         $A.enqueueAction(getList);
     },
-    filterResult : function(component, event, helper) {
+    filterResults : function(component, event, helper) {
         var getBedList = component.find("bedroomList").get("v.value");
-        var getBathList = component.find("BathroomList").get("v.value");
+        var getBathList = component.find("bathroomList").get("v.value");
         var getRentAmount = component.find("rentamount").get("v.value");
         var getList = component.get("c.getProperty");
         var checkBedValue = component.get("v.numBed");
@@ -47,10 +46,12 @@
         component.set("v.oldnumRent", checkRentValue);
         component.set("v.oldnumBath", checkBathValue);
         component.set("v.oldnumBed", checkBedValue);
-        getList.setParams({numBathrooms : getBathList, numBedrooms : getBathList, maxRent : getRentAmount, setsize : "v.OffsetSize"}); 
+        alert(getRentAmount);
+        getList.setParams({numBathrooms : getBathList, numBedrooms : getBedList, maxRent : getRentAmount, setsize : 0}); 
         getList.setCallback(this, function(response) {
             component.set("v.OffsetSize", 0);
-            component.set("v.examples", response.getReturnValue());
+            alert(response.getReturnValue());
+            component.set("v.properties", response.getReturnValue());
             
         });
         $A.enqueueAction(getList);
