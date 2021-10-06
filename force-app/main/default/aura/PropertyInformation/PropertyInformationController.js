@@ -1,22 +1,15 @@
+/*
+*Name: PropertyInformationController.js
+*Author: Julia Weakley
+*DateCreated: 9/27/2021
+*DateModified: 10/5/2021
+*Description: 
+*	Methods retrieve information on property associated with current user
+*/
 ({
+    // grabs Property information and sets Property object to prop
 	doInit : function(component, event, helper) {
-		   let method = component.get("c.getPropInfo");
-       
-        method.setCallback(this, function(response) {
-        	if(response.getState() === "SUCCESS")
-        	{
-                let res = response.getReturnValue(); 
-                 component.set("v.prop", res);
-            	console.log(res); 
-        	}
-        	else 
-            {
-                console.log("Failed with state: " + response.getState());
-            }
-        });
-         
-    	
-    	$A.enqueueAction(method);
+		 helper.propSetUp(component, event, helper);
     }
                            
 })
