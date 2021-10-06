@@ -1,0 +1,40 @@
+<aura:component controller="propertyOwner" implements="forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="userId" type="String" />
+    <aura:attribute name="accounts" type="Account[]" />
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <div>
+        Hello {!v.userId}!
+    </div>
+    <div>
+        <lightning:recordEditForm aura:id="recordEditForm" objectApiName="Account">
+            Account Information
+            <lightning:inputField fieldName="Name" />
+            <lightning:inputField fieldName="Type" />
+            <lightning:inputField fieldName="Rating" />
+            <lightning:inputField fieldName="SLAExpirationDate__c" />
+            Account Address
+            <lightning:inputField fieldName="Phone" />
+            <lightning:inputField fieldName="Website" />
+            <lightning:inputField fieldName="NumberofLocations__c" />
+            <lightning:button type="submit" name="submit" label="Submit"/>
+        </lightning:recordEditForm>
+    </div>
+    <div class="slds-grid">
+        <div class="slds-col">
+            <ul>
+                <li class="slds-text-heading_medium">Names</li>
+                <aura:iteration items="{!v.accounts}" var="account">
+                    <li class="myli"> <h3>{!account.Name}</h3> </li>
+                </aura:iteration>
+            </ul>
+        </div>
+        <div class="slds-col">
+            <ul>
+                <li class="slds-text-heading_medium">Phones</li>
+                <aura:iteration items="{!v.accounts}" var="account">
+                    <li class="myli"> <h3>{!account.Phone}</h3> </li>
+                </aura:iteration>
+            </ul>
+        </div>
+    </div>
+</aura:component>
