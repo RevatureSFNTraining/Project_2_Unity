@@ -1,81 +1,96 @@
-<aura:component controller="TenantController" implements="forceCommunity:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global">
+<!-- 
+Name: TenantInformation.cmp
+Author: Julia Weakley
+DateCreated: 9/26/2021
+DateModified: 10/5/2021
+Description: 
+ Component for viewing tenant information of user, the lease associated with tenant, and the property associated with the lease 
+ 
+-->
+
+<aura:component controller="TenantController" implements="flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global">
     
+    <!-- Handler allows us to place values into the attributes tenant and clicked -->
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
-    <aura:attribute name="fields" type="String[]" default="['Name','Phone','Email']" />
+    
+    <!-- The tenant information; Primary phone, email, name, the lease associated, the property associated, etc. -->
     <aura:attribute name="tenant" type="Tenant__c"  />
+    
+    <!-- Boolean for whether the edit button was clicked-->
     <aura:attribute name="clicked" type="Boolean" default="false"/>
-    <div class="slds-text-color_default">   
-        <div class="slds-box slds-theme_alt-inverse  slds-text-color_default">
+    
+    <div class=" slds-text-color_default ">
+        <div class="slds-box slds-theme_alt-inverse"></div>
+        
+        <!-- Aura:if for if edit button is clicked show edit form --> 
+        <aura:if isTrue="{!v.clicked}">
             
-            
-            <aura:if isTrue="{!v.clicked}">
+            <div class="slds-card">
                 
-                <div class="slds-card">
-                    
-                    <lightning:card title="Tenant">
-                        <lightning:recordEditForm aura:id="recordEditForm"
-                                                  recordId="{!v.tenant.Id}"
-                                                  objectApiName="Tenant__c"
-                                                  density="compact"
-                                                  onsubmit="{!c.onSubmit}"
-                                                  class=" slds-text-color_default"
-                                                  >
-                            
-                            <lightning:inputField fieldName="Name"  />
-                            <br/>
-                            <lightning:inputField fieldName="Email__c" />  
-                            <br/>
-                            <lightning:inputField fieldName="Primary_Phone__c" />
-                            
-                            <br/>
-                            <lightning:button aura:id="submit" type="submit" label="Update Info" class="slds-m-top_medium" />
-                            <lightning:button label="Quit" title="Base action" class="slds-m-top_medium" onclick="{! c.handleExit }" />
-                        </lightning:recordEditForm>
-                    </lightning:card>
-                </div>
+                <lightning:card title="Tenant">
+                    <lightning:recordEditForm aura:id="recordEditForm"
+                                              recordId="{!v.tenant.Id}"
+                                              objectApiName="Tenant__c"
+                                              density="compact"
+                                              onsubmit="{!c.onSubmit}"
+                                              
+                                              >
+                        
+                        <lightning:inputField fieldName="Name"  />
+                        <br/>
+                        <lightning:inputField fieldName="Email__c" />  
+                        <br/>
+                        <lightning:inputField fieldName="Primary_Phone__c" />
+                        
+                        <br/>
+                        <!-- Button to submit edits  -->
+                        <lightning:button aura:id="submit" type="submit" label="Update Info" class="slds-m-top_medium" />
+                        <!-- Button to exit edit form  --> 
+                        <lightning:button label="Quit" title="Base action" class="slds-m-top_medium" onclick="{! c.handleExit }" />
+                    </lightning:recordEditForm>
+                </lightning:card>
+            </div>
+            
+            <!-- If update button was not clicked or Quit was pressed show view form -->
+            <aura:set attribute="else">
                 
-                <!-- If update button was not clicked or Quit was pressed -->
-                <aura:set attribute="else">
-                    
-                    
-                    
-                    <lightning:card title="Tenant">
-                        <lightning:recordViewForm aura:id="recordEditForm"
-                                                  recordId="{!v.tenant.Id}"
-                                                  objectApiName="Tenant__c"
-                                                  class=" slds-text-color_default"
-                                                  >
-                            
-                            <lightning:outputField fieldName="Name"   />
-                            
-                            <lightning:outputField fieldName="Email__c"/>  
-                            
-                            <lightning:outputField fieldName="Primary_Phone__c" />
-                            
-                            <lightning:button class="slds-button slds-button_outline-brand"  variant="base" label="Edit" title="Base action" onclick="{! c.handleClick }"/>
-                        </lightning:recordViewForm>  
-                    </lightning:card>
-                    
-                    
-                </aura:set>
-            </aura:if>
-            
-            
-            
-            
-            
-            
-            
+                <!-- Tenant Information -->
+                <lightning:card title="Tenant">
+                    <lightning:recordViewForm aura:id="recordEditForm"
+                                              recordId="{!v.tenant.Id}"
+                                              objectApiName="Tenant__c"
+                                              
+                                              >
+                        
+                        <lightning:outputField fieldName="Name"   />
+                        <br/>
+                        <lightning:outputField fieldName="Email__c"  />  
+                        <br/>
+                        <lightning:outputField fieldName="Primary_Phone__c" />
+                        <br/>
+                        
+                        <!-- Button to edit information -->
+                        <lightning:button class="slds-button slds-button_outline-brand"  variant="base" label="Edit" title="Base action" onclick="{! c.handleClick }"/>
+                        
+                    </lightning:recordViewForm>  
+                </lightning:card>
+            </aura:set>
+        </aura:if>
+        <!--End of Aura:if -->
+        
+        <div class="slds-box slds-theme_alt-inverse slds-text-color_default ">
             <br/>
             <div class="slds-grid slds-gutters ">
                 <div class="slds-col">
+                    <!-- Lease component -->
                     <c:LeaseInformation/>
-                </div>
+                </div>    
                 <div class="slds-col">
+                    <!-- Property component -->
                     <c:PropertyInformation/>
                 </div>    
             </div>
-            
-        </div>  
-    </div>
+        </div>
+    </div>  
+    
 </aura:component>
