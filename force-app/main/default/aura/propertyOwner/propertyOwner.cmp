@@ -1,4 +1,4 @@
-<aura:component controller="propertyOwner" implements="forceCommunity:availableForAllPageTypes" access="global">
+<aura:component controller="propertyOwner" implements="forceCommunity:availableForAllPageTypes">
     <aura:attribute name="userId" type="String" />
     <aura:attribute name="accounts" type="Account[]" />
     <aura:handler name="init" value="{!this}" action="{!c.init}" />
