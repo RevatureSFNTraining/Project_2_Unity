@@ -69,19 +69,19 @@
                 </aura:set>
                 <div class="slds-grid slds-wrap slds-gutters">
                     <div class="slds-col slds-size_1-of-1 slds-text-heading_small slds-var-m-bottom_medium">
-                        Total Income: <lightning:formattedNumber aura:id="totalIncome" style="currency" maximumFractionDigits="2" value="0" />
+                        <h2>Total Income: <lightning:formattedNumber aura:id="totalIncome" style="currency" maximumFractionDigits="2" value="0" /></h2>
                     </div>
                     <div class="slds-col slds-size_3-of-4 slds-text-heading_small">
-                        Lease Agreement Name
+                        <h3>Lease Agreement Name</h3>
                     </div>
                     <div class="slds-col slds-size_1-of-4 slds-text-heading_small">
-                        Revenue
+                        <h3>Revenue</h3>
                     </div>
                     <aura:iteration items="{!v.leaseAgreements}" var="agreement">
-                        <div class="slds-col slds-size_3-of-4">
+                        <div class="slds-col slds-size_3-of-4 slds-border_top">
                             <lightning:formattedText value="{!agreement.Name}" />
                         </div>
-                        <div class="slds-col slds-size_1-of-4">
+                        <div class="slds-col slds-size_1-of-4 slds-border_top">
                             <lightning:formattedNumber style="currency" maximumFractionDigits="2" value="{!agreement.calculatedIncome}" />
                         </div>
                     </aura:iteration>
@@ -95,19 +95,19 @@
                 </aura:set>
                 <div class="slds-grid slds-wrap slds-gutters">
                     <div class="slds-col slds-size_1-of-1 slds-text-heading_small slds-var-m-bottom_medium">
-                        Total Expenses: <lightning:formattedNumber aura:id="totalExpenses" style="currency" maximumFractionDigits="2" value="0" />
+                        <h2>Total Expenses: <lightning:formattedNumber aura:id="totalExpenses" style="currency" maximumFractionDigits="2" value="0" /></h2>
                     </div>
                     <div class="slds-col slds-size_3-of-4 slds-text-heading_small">
-                        Request Name
+                        <h3>Request Name</h3>
                     </div>
                     <div class="slds-col slds-size_1-of-4 slds-text-heading_small">
-                        Cost
+                        <h3>Cost</h3>
                     </div>
                     <aura:iteration items="{!v.quotes}" var="quote">
-                        <div class="slds-col slds-size_3-of-4">
+                        <div class="slds-col slds-size_3-of-4 slds-border_top">
                             <lightning:formattedText value="{!quote.Name}" />
                         </div>
-                        <div class="slds-col slds-size_1-of-4">
+                        <div class="slds-col slds-size_1-of-4 slds-border_top">
                             <lightning:formattedNumber style="currency" maximumFractionDigits="2" value="{!quote.cost}" />
                         </div>
                     </aura:iteration>
