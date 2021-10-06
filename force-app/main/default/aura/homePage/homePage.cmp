@@ -16,16 +16,20 @@
     <div class="slds-grid">
     	<div class="slds-col">
         	<ul>
-            	<li>{!top.Picture__c}</li>
-                <li>{!top.Name}</li>
-                <li>{!top.Desired_Rent__c}</li>
+                <aura:iteration items="{!v.top}" var="topItem">
+                    <li><img src="{!topItem.Picture__c}" /></li>
+                    <li>{!topItem.Name}</li>
+                    <li><lightning:formattedNumber style="currency" maximumFractionDigits="2" value="{!topItem.Desired_Rent__c}" /></li>
+                </aura:iteration>
             </ul>
         </div>
         <div class="slds-col">
         	<ul>
-            	<li>{!bot.Picture__c}</li>
-                <li>{!bot.Name}</li>
-                <li>{!bot.Desired_Rent__c}</li>
+                <aura:iteration items="{!v.bot}" var="botItem">
+                    <li><img src="{!botItem.Picture__c}" /></li>
+                    <li>{!botItem.Name}</li>
+                    <li><lightning:formattedNumber style="currency" maximumFractionDigits="2" value="{!botItem.Desired_Rent__c}" /></li>
+                </aura:iteration>
             </ul>
         </div>
     </div>
