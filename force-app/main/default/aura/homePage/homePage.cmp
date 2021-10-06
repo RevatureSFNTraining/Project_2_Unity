@@ -13,19 +13,23 @@
     <div class="slds-text-heading_medium">
         Standout properties:
     </div>
-    <div class="slds-grid">
-    	<div class="slds-col">
+    <div class="slds-grid slds-wrap">
+    	<div class="slds-col slds-size_1-of-2 border slds-border_top">
         	<ul>
-            	<li>{!top.Picture__c}</li>
-                <li>{!top.Name}</li>
-                <li>{!top.Desired_Rent__c}</li>
+                <aura:iteration items="{!v.top}" var="topItems">
+            	    <li><img src="{!topItems.Picture__c}" /></li>
+                    <li>{!topItems.Name}</li>
+                    <li><lightning:formattedNumber style="currency" value="{!topItems.Desired_Rent__c}" /></li>
+                </aura:iteration>
             </ul>
         </div>
-        <div class="slds-col">
+        <div class="slds-col slds-size_1-of-2 border slds-border_top">
         	<ul>
-            	<li>{!bot.Picture__c}</li>
-                <li>{!bot.Name}</li>
-                <li>{!bot.Desired_Rent__c}</li>
+                <aura:iteration items="{!v.bot}" var="botItems">
+            	    <li><img src="{!botItems.Picture__c}" /></li>
+                    <li>{!botItems.Name}</li>
+                    <li><lightning:formattedNumber style="currency" value="{!botItems.Desired_Rent__c}" /></li>
+                </aura:iteration>
             </ul>
         </div>
     </div>
