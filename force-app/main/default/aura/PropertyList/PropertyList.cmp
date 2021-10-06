@@ -1,6 +1,7 @@
 <aura:component controller="MarketingListController" implements="forceCommunity:availableForAllPageTypes">
     <aura:handler name="init" action="{!c.displayRec}" value="{!this}"/>
     <aura:attribute name="properties" type="Property__c[]"/>
+    <aura:attribute name="propertyCount" type="Integer" />
     <aura:attribute name="OffsetSize" type="Integer" default="0"/>
  	<aura:attribute name="property" type="Property__c[]"/>
 	<aura:attribute name="numBed" type="Integer" default="1"/>
