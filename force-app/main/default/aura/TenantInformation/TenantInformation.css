@@ -1,0 +1,21 @@
+.THIS  {
+   
+   
+    text-align: center; 
+    
+}
+
+.THIS.TenantInfo
+{
+    display:flex; 
+   	justify-content: center; 
+ 
+   align-items: center;
+    outline-style: solid; 
+    outline-color:black; 
+ 
+}
+.THIS 
+{
+  
+}

@@ -1,0 +1,29 @@
+<aura:component controller="TenantController" implements="forceCommunity:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+	<aura:attribute name="lease" type="Lease_Agreement__c"/>   
+    <aura:attribute name="fields" type="String[]" default="['Name','Start Date', 'End Date']" />
+  
+ <div class="slds-card">
+  <lightning:card title="Lease Agreement">
+ <!--     <p> {!v.lease.Name}</p>
+    <br/>
+   <p> Lease Start: {!v.lease.Start_Date__c}</p>
+    <br/>
+    <p> Lease End: {!v.lease.End_Date__c}</p>
+    <br/>
+    
+  <p>  Lease Monthly Payment Amount: {!v.lease.Monthly_Rent_Due__c}</p>
+   
+--> 
+    
+      <lightning:recordForm
+        recordId="{!v.lease.Id}" objectApiName="Lease_Agreement__c"
+        layoutType="Full"
+       density="auto"
+        mode="readonly" 
+        columns="1"
+                            fields="{!v.fields}" />
+     
+ </lightning:card>   
+    </div>
+</aura:component>

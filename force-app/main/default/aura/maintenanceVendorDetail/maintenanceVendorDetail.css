@@ -1,0 +1,20 @@
+.THIS th {
+    padding: 8px;
+}
+.THIS td {
+    font-size: 16px;
+    padding: 8px;
+}
+.THIS .key {
+    font-weight: bold;
+    text-align: right;
+
+    width: 50%;
+}
+.THIS .value {
+    width: 50%;
+}
+.THIS .vendor_name {
+    font-size: 28px;
+    text-align: center;
+}
