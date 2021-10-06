@@ -8,7 +8,7 @@ Description:
  
 -->
 
-<aura:component controller="TenantController" implements="flexipage:availableForRecordHome,force:hasRecordId" >
+<aura:component controller="TenantController" implements="forceCommunity:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" >
     <!-- set lease attribute -->
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     <!-- attribute that holds all lease information -->

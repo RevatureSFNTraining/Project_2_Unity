@@ -1,0 +1,42 @@
+<aura:component>
+    <!--Detail attributes.-->
+    <aura:attribute name="name" type="String" required="true" />
+    <aura:attribute name="specialty" type="String" required="true" />
+    <aura:attribute name="manager" type="String" />
+    <aura:attribute name="branch" type="String" />
+    <aura:attribute name="email" type="String" />
+    <aura:attribute name="phone" type="String" />
+
+    <!--Component Layout-->
+    <lightning:card>
+        <table>
+            <thead>
+                <tr>
+                    <th class="vendor_name" colspan="2">{!v.name}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="key">Specialty:</td>
+                    <td class="value">{!v.specialty}</td>
+                </tr>
+                <tr>
+                    <td class="key">Manager:</td>
+                    <td class="value">{!v.manager}</td>
+                </tr>
+                <tr>
+                    <td class="key">Branch:</td>
+                    <td class="value">{!v.branch}</td>
+                </tr>
+                <tr>
+                    <td class="key">E-mail:</td>
+                    <td class="value"><lightning:formattedEmail value="{!v.email}" hideIcon="true" /></td>
+                </tr>
+                <tr>
+                    <td class="key">Phone:</td>
+                    <td class="value"><lightning:formattedPhone value="{!v.phone}" /></td>
+                </tr>
+            </tbody>
+        </table>
+    </lightning:card>
+</aura:component>	

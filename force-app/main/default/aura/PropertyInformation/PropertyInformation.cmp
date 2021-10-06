@@ -7,7 +7,7 @@ Description:
  Component for viewing Property information associated with user
 -->
 
-<aura:component controller="TenantController" implements="flexipage:availableForRecordHome,force:hasRecordId" >
+<aura:component controller="TenantController" implements="forceCommunity:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" >
 	<!-- grab property information and set to attribute prop -->
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
 	<!-- attribute that holds information for propery  -->
