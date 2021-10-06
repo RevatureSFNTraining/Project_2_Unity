@@ -1,22 +1,20 @@
 <aura:component controller="TenantFormController" implements="forceCommunity:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId">
-    <aura:attribute name="origin" type="String" />
-    <aura:attribute name="status" type="String" />
     <aura:attribute name="recordId" type="Id"/>
     <aura:attribute name="reason" type="String" />
     <aura:attribute name="subject" type="String" />
     <aura:attribute name="description" type="String" />
-    <aura:attribute name ="tenantName" type="String"/>
-    <lightning:card title="Issue Form">
-        <lightning:recordEditForm recordId="{!v.recordId}"
-                                  objectApiName="Case">
-            <lightning:messages />
-            <lightning:inputField fieldName="Status" value="{!v.status}" />
-            <lightning:inputField fieldName="Reason" value="{!v.reason}"/>
-            <lightning:inputField fieldName="Subject" value="{!v.subject}"/>
-            <lightning:inputField fieldName="Description" value="{!v.description}"/>
-            <lightning:inputField fieldName="Origin" value="{!v.origin}"/>
-            <lightning:button class="slds-m-top_small" onclick="{!c.submit}" label="Submit" />
-        </lightning:recordEditForm>
-
-    </lightning:card>
+    <aura:attribute name ="tenantId" type="Tenant__c"/>
+    <div class="slds-theme_info slds-var-p-around_medium">
+        <lightning:card title="Issue Form">
+            <lightning:recordEditForm recordId="{!v.recordId}"
+                                    objectApiName="Case">
+                <lightning:messages />
+                <lightning:inputField fieldName="Tenant__c" value="{!v.tenantId}" />
+                <lightning:inputField fieldName="Reason" value="{!v.reason}"/>
+                <lightning:inputField fieldName="Subject" value="{!v.subject}"/>
+                <lightning:inputField fieldName="Description" value="{!v.description}"/>
+                <lightning:button class="slds-m-top_small" onclick="{!c.submit}" label="Submit" />
+            </lightning:recordEditForm>
+        </lightning:card>
+    </div>
 </aura:component>

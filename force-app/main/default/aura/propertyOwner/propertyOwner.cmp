@@ -2,37 +2,43 @@
     <aura:attribute name="userId" type="String" />
     <aura:attribute name="accounts" type="Account[]" />
     <aura:handler name="init" value="{!this}" action="{!c.init}" />
-    <div class="slds-text-heading_medium">
-        Hello {!v.userId}!
-    </div>
-    <div>
-        <lightning:recordEditForm aura:id="recordEditForm" onsuccess="{!c.resetForm}" objectApiName="Account">
-            Account Information
-            <lightning:inputField aura:id="accField" fieldName="Name" />
-            <lightning:inputField aura:id="accField" fieldName="Type" />
-            <lightning:inputField aura:id="accField" fieldName="Rating" />
-            <lightning:inputField aura:id="accField" fieldName="SLAExpirationDate__c" />
-            Account Address
-            <lightning:inputField aura:id="accField" fieldName="Phone" />
-            <lightning:inputField aura:id="accField" fieldName="Website" />
-            <lightning:inputField aura:id="accField" fieldName="NumberofLocations__c" />
-            <lightning:button type="submit" name="Submit" label="Submit"/>
-        </lightning:recordEditForm>
-    </div>
-    <div class="slds-grid slds-wrap slds-gutters">
-        <div class="slds-col slds-size_1-of-2 slds-text-heading_medium">
-            Names
-        </div>
-        <div class="slds-col slds-size_1-of-2 slds-text-heading_medium">
-            Phones
-        </div>
-        <aura:iteration items="{!v.accounts}" var="account">
-            <div class="slds-col slds-size_1-of-2 slds-border_top">
-                <h3>{!account.Name}</h3>
+    <div class="slds-theme_info slds-var-p-around_medium">
+        <lightning:card class="slds-var-m-horizontal_medium slds-var-m-top_medium slds-var-p-around_medium">
+            <div>
+                Hello {!v.userId}!
             </div>
-            <div class="slds-col slds-size_1-of-2 slds-border_top">
-                <h3>{!account.Phone}</h3>
+            <div>
+                <lightning:recordEditForm aura:id="recordEditForm" onsuccess="{!c.resetForm}" objectApiName="Account">
+                    Account Information
+                    <lightning:inputField aura:id="accField" fieldName="Name" />
+                    <lightning:inputField aura:id="accField" fieldName="Type" />
+                    <lightning:inputField aura:id="accField" fieldName="Rating" />
+                    <lightning:inputField aura:id="accField" fieldName="SLAExpirationDate__c" />
+                    Account Address
+                    <lightning:inputField aura:id="accField" fieldName="Phone" />
+                    <lightning:inputField aura:id="accField" fieldName="Website" />
+                    <lightning:inputField aura:id="accField" fieldName="NumberofLocations__c" />
+                    <lightning:button type="submit" name="Submit" label="Submit"/>
+                </lightning:recordEditForm>
             </div>
-        </aura:iteration>
+        </lightning:card>
+        <lightning:card class="slds-var-m-around_medium slds-var-m-bottom_medium slds-var-p-around_medium">
+            <div class="slds-grid slds-wrap slds-gutters">
+                <div class="slds-col slds-size_1-of-2 slds-text-heading_medium">
+                    Names
+                </div>
+                <div class="slds-col slds-size_1-of-2 slds-text-heading_medium">
+                    Phones
+                </div>
+                <aura:iteration items="{!v.accounts}" var="account">
+                    <div class="slds-col slds-size_1-of-2 slds-border_top">
+                        <h3>{!account.Name}</h3>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2 slds-border_top">
+                        <h3>{!account.Phone}</h3>
+                    </div>
+                </aura:iteration>
+            </div>
+        </lightning:card>
     </div>
 </aura:component>

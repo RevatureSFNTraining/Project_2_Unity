@@ -20,13 +20,13 @@ Description:
     <div class="slds-card">
         <lightning:card title="Lease Agreement">
             <lightning:recordForm
-                                  recordId="{!v.lease.Id}" objectApiName="Lease_Agreement__c"
-                                  layoutType="Full"
-                                  density="auto"
-                                  mode="readonly" 
-                                  columns="1"
-                                  fields="{!v.fields}" />
-        </lightning:card>   
+                                    recordId="{!v.lease.Id}" objectApiName="Lease_Agreement__c"
+                                    layoutType="Full"
+                                    density="auto"
+                                    mode="readonly" 
+                                    columns="1"
+                                    fields="{!v.fields}" />
+        </lightning:card> 
     </div>
     
 </aura:component>

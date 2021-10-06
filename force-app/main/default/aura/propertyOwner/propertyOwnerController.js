@@ -6,6 +6,6 @@
 
 	resetForm : function(component, event, helper) {
 		helper.resetForm(component);
-		helper.getAccounts(component);
+        helper.getAccounts(component);
 	}
 })
