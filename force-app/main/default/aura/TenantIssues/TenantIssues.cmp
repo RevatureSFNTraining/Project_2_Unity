@@ -4,16 +4,17 @@
     <aura:attribute name="subject" type="String" />
     <aura:attribute name="description" type="String" />
     <aura:attribute name ="tenantId" type="Tenant__c"/>
-    <lightning:card title="Issue Form">
-        <lightning:recordEditForm recordId="{!v.recordId}"
-                                  objectApiName="Case">
-            <lightning:messages />
-            <lightning:inputField fieldName="Tenant__c" value="{!v.tenantId}" />
-            <lightning:inputField fieldName="Reason" value="{!v.reason}"/>
-            <lightning:inputField fieldName="Subject" value="{!v.subject}"/>
-            <lightning:inputField fieldName="Description" value="{!v.description}"/>
-            <lightning:button class="slds-m-top_small" onclick="{!c.submit}" label="Submit" />
-        </lightning:recordEditForm>
-
-    </lightning:card>
+    <div class="slds-theme_info slds-var-p-around_medium">
+        <lightning:card title="Issue Form">
+            <lightning:recordEditForm recordId="{!v.recordId}"
+                                    objectApiName="Case">
+                <lightning:messages />
+                <lightning:inputField fieldName="Tenant__c" value="{!v.tenantId}" />
+                <lightning:inputField fieldName="Reason" value="{!v.reason}"/>
+                <lightning:inputField fieldName="Subject" value="{!v.subject}"/>
+                <lightning:inputField fieldName="Description" value="{!v.description}"/>
+                <lightning:button class="slds-m-top_small" onclick="{!c.submit}" label="Submit" />
+            </lightning:recordEditForm>
+        </lightning:card>
+    </div>
 </aura:component>

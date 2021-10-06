@@ -19,8 +19,7 @@ Description:
     <!-- Boolean for whether the edit button was clicked-->
     <aura:attribute name="clicked" type="Boolean" default="false"/>
     
-    <div class=" slds-text-color_default ">
-        <div class="slds-box"></div>
+    <div class=" slds-text-color_default slds-var-p-around_medium">
         
         <!-- Aura:if for if edit button is clicked show edit form --> 
         <aura:if isTrue="{!v.clicked}">
