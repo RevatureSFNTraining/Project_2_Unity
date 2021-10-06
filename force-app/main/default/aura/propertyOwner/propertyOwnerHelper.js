@@ -12,5 +12,11 @@
     init : function(component) {
         var userId = $A.get("$SObjectType.CurrentUser.Id");
         component.set("v.userId", userId);
+    },
+
+    resetForm : function(component) {
+        component.find("accField").forEach(function(field) {
+            field.reset();
+        })
     }
 })

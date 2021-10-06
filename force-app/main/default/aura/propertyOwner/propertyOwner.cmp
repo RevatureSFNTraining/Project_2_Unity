@@ -6,35 +6,33 @@
         Hello {!v.userId}!
     </div>
     <div>
-        <lightning:recordEditForm aura:id="recordEditForm" objectApiName="Account">
+        <lightning:recordEditForm aura:id="recordEditForm" onsuccess="{!c.resetForm}" objectApiName="Account">
             Account Information
-            <lightning:inputField fieldName="Name" />
-            <lightning:inputField fieldName="Type" />
-            <lightning:inputField fieldName="Rating" />
-            <lightning:inputField fieldName="SLAExpirationDate__c" />
+            <lightning:inputField aura:id="accField" fieldName="Name" />
+            <lightning:inputField aura:id="accField" fieldName="Type" />
+            <lightning:inputField aura:id="accField" fieldName="Rating" />
+            <lightning:inputField aura:id="accField" fieldName="SLAExpirationDate__c" />
             Account Address
-            <lightning:inputField fieldName="Phone" />
-            <lightning:inputField fieldName="Website" />
-            <lightning:inputField fieldName="NumberofLocations__c" />
+            <lightning:inputField aura:id="accField" fieldName="Phone" />
+            <lightning:inputField aura:id="accField" fieldName="Website" />
+            <lightning:inputField aura:id="accField" fieldName="NumberofLocations__c" />
             <lightning:button type="submit" name="Submit" label="Submit"/>
         </lightning:recordEditForm>
     </div>
-    <div class="slds-grid">
-        <div class="slds-col">
-            <ul>
-                <li class="slds-text-heading_medium">Names</li>
-                <aura:iteration items="{!v.accounts}" var="account">
-                    <li class="myli"> <h3>{!account.Name}</h3> </li>
-                </aura:iteration>
-            </ul>
+    <div class="slds-grid slds-wrap slds-gutters">
+        <div class="slds-col slds-size_1-of-2 slds-text-heading_medium">
+            Names
         </div>
-        <div class="slds-col">
-            <ul>
-                <li class="slds-text-heading_medium">Phones</li>
-                <aura:iteration items="{!v.accounts}" var="account">
-                    <li class="myli"> <h3>{!account.Phone}</h3> </li>
-                </aura:iteration>
-            </ul>
+        <div class="slds-col slds-size_1-of-2 slds-text-heading_medium">
+            Phones
         </div>
+        <aura:iteration items="{!v.accounts}" var="account">
+            <div class="slds-col slds-size_1-of-2 slds-border_top">
+                <h3>{!account.Name}</h3>
+            </div>
+            <div class="slds-col slds-size_1-of-2 slds-border_top">
+                <h3>{!account.Phone}</h3>
+            </div>
+        </aura:iteration>
     </div>
 </aura:component>
