@@ -13,8 +13,8 @@
     <div class="slds-text-heading_medium">
         Standout properties:
     </div>
-    <div class="slds-grid">
-    	<div class="slds-col">
+    <div class="slds-grid slds-wrap">
+    	<div class="slds-col slds-size_1-of-2 border slds-border_top">
         	<ul>
                 <aura:iteration items="{!v.top}" var="topItems">
             	    <li><img src="{!topItems.Picture__c}" /></li>
@@ -23,7 +23,7 @@
                 </aura:iteration>
             </ul>
         </div>
-        <div class="slds-col">
+        <div class="slds-col slds-size_1-of-2 border slds-border_top">
         	<ul>
                 <aura:iteration items="{!v.bot}" var="botItems">
             	    <li><img src="{!botItems.Picture__c}" /></li>
