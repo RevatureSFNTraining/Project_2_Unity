@@ -35,9 +35,9 @@
         });
         $A.enqueueAction(getList);
     },
-    filterResult : function(component, event, helper) {
+    filterResults : function(component, event, helper) {
         var getBedList = component.find("bedroomList").get("v.value");
-        var getBathList = component.find("BathroomList").get("v.value");
+        var getBathList = component.find("bathroomList").get("v.value");
         var getRentAmount = component.find("rentamount").get("v.value");
         var getList = component.get("c.getProperty");
         var checkBedValue = component.get("v.numBed");
@@ -46,10 +46,12 @@
         component.set("v.oldnumRent", checkRentValue);
         component.set("v.oldnumBath", checkBathValue);
         component.set("v.oldnumBed", checkBedValue);
-        getList.setParams({numBathrooms : getBathList, numBedrooms : getBathList, maxRent : getRentAmount, setsize : "v.OffsetSize"}); 
+        alert(getRentAmount);
+        getList.setParams({numBathrooms : getBathList, numBedrooms : getBedList, maxRent : getRentAmount, setsize : 0}); 
         getList.setCallback(this, function(response) {
             component.set("v.OffsetSize", 0);
-            component.set("v.examples", response.getReturnValue());
+            alert(response.getReturnValue());
+            component.set("v.properties", response.getReturnValue());
             
         });
         $A.enqueueAction(getList);

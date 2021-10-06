@@ -6,7 +6,7 @@
  	<aura:attribute name="property" type="Property__c[]"/>
 	<aura:attribute name="numBed" type="Integer" default="1"/>
 	<aura:attribute name="numBath" type="Integer" default="1"/>
-	<aura:attribute name="numRent" type="Integer"/>
+	<aura:attribute name="numRent" type="Integer" />
     <aura:attribute name="oldnumBath" type="Integer" default="1"/>
  	<aura:attribute name="oldnumBed" type="Integer" default="1"/>
  	<aura:attribute name="oldnumRent" type="Integer"/> 
@@ -58,7 +58,7 @@
                 Property
             </legend>
             <aura:iteration items="{!v.properties}" var="property">
-                {!property.Address__c}
+                <h2>{!property.Address__c}</h2>
 				<ul class="slds-list_horizontal">
                     <li>
                         <lightning:button onclick="{!c.previous}" label="Previous" class="slds-m-top_medium"/>
@@ -70,7 +70,12 @@
                         <lightning:button onclick="{!c.next}" label="Next" class="slds-m-top_medium"/>
                     </li>
                 </ul>
-    Zip Code: {!property.Zip_Code__c} Rent: {!property.Desired_Rent__c} Bedrooms: {!property.Bedrooms__c} Bathrooms: {!property.Bathrooms__c}
+                <ul>
+                    <li>Zip Code: {!property.Zip_Code__c}</li>
+                    <li>Rent: <lightning:formattedNumber style="currency" maximumFractionDigits="2" value="{!property.Desired_Rent__c}" /></li>
+                    <li>Bedrooms: {!property.Bedrooms__c}</li>
+                    <li>Bathrooms: {!property.Bathrooms__c}</li>
+                </ul>
             </aura:iteration>
         </fieldset>
     </div>
