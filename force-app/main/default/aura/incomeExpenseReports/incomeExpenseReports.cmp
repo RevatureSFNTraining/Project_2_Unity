@@ -1,4 +1,4 @@
-<aura:component controller="IncomeExpenseAuraController">
+<aura:component controller="IncomeExpenseAuraController" implements="forceCommunity:availableForAllPageTypes">
     <aura:attribute name="properties" type="List" default="[]" />
     <aura:attribute name="hasSelectedProperty" type="Boolean" access="private" default="false" />
     <aura:attribute name="selectedProperty" type="Map" access="private" default="{}" />
