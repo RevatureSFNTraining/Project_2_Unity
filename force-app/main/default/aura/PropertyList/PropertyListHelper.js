@@ -23,7 +23,11 @@
     previousProperty : function(component, event) {
 		var getList = component.get("c.getProperty");
         var size = component.get("v.OffsetSize");
+        if(oss > 1) {
         size -= 1;
+        } else {
+            size = 1;
+        }
         getList.setParams({numBathrooms : component.get("v.oldnumBath"), numBedrooms : component.get("v.oldnumBed"), maxRent : component.get("v.oldnumRent"), setsize : size - 1});
         
         getList.setCallback(this, function(response) {

@@ -3,7 +3,7 @@
 		var accs = component.get("c.getAccounts");
         accs.setCallback(this, function(response) {
             if(response.getState() == "SUCCESS") {
-                component.set("v.accounts", accs);
+                component.set("v.accounts", response.getReturnValue());
             }
         });
         $A.enqueueAction(accs);
