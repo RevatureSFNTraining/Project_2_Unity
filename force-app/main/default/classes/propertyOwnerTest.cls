@@ -16,8 +16,7 @@ public class propertyOwnerTest {
 
     @isTest
     public static void testList() {
-        propertyOwner owner = new propertyOwner();
-        List<Account> testAccs = owner.getAccounts();
+        List<Account> testAccs = propertyOwner.getAccounts();
         for (Integer i = 0; i < newAccs.size(); i++) {
             system.assertEquals(accs[i], testAccs[i]);
         }
