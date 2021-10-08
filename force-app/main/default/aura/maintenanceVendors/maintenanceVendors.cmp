@@ -1,4 +1,4 @@
-<aura:component controller="MaintenanceVendorAuraController">
+<aura:component implements="forceCommunity:availableForAllPageTypes" controller="MaintenanceVendorAuraController">
     <aura:attribute name="specialties" type="List" access="private" />
     <aura:attribute name="vendorList" type="List" access="private" default="[]" />
     <aura:attribute name="pageList" type="List" access="private" default="[1]" />
