@@ -1,5 +1,6 @@
 ({
 	displayRec : function(component, event, helper) {
+        helper.getCount(component);
         helper.display(component);
     },
     next : function(component, event, helper) {

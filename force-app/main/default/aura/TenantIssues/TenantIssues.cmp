@@ -10,6 +10,7 @@
         <lightning:recordEditForm recordId="{!v.recordId}"
                                   objectApiName="Case">
             <lightning:messages />
+            <lightning:inputField fieldName="TenantId" value="{!v.tenantName}"/>
             <lightning:inputField fieldName="Status" value="{!v.status}" />
             <lightning:inputField fieldName="Reason" value="{!v.reason}"/>
             <lightning:inputField fieldName="Subject" value="{!v.subject}"/>

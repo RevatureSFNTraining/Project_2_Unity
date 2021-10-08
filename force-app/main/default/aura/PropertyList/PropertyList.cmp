@@ -8,7 +8,8 @@
 	<aura:attribute name="numRent" type="Integer"/>
     <aura:attribute name="oldnumBath" type="Integer" default="1"/>
  	<aura:attribute name="oldnumBed" type="Integer" default="1"/>
- 	<aura:attribute name="oldnumRent" type="Integer"/> 
+ 	<aura:attribute name="oldnumRent" type="Integer"/>
+     <aura:attribute name="total" type="Integer"/> 
 	<lightning:layout class="slds-page-header slds-page-header_object-home">
         <lightning:layoutItem>
             <lightning:icon iconName="standard:home" alternativeText="Marketing Listing"/>
@@ -51,7 +52,7 @@
         </fieldset>
     </div>
     <div aria-labelledby="newfilterform">
-        <fieldset class="slds-box slds-theme_default slds-container_small">
+        <fieldset class="slds-box slds-theme_default slds-container_medium">
             <legend id="newfilterform" class="slds-text-heading_small
                                               slds-p-vertical_medium">
                 Property

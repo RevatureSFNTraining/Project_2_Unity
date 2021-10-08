@@ -9,11 +9,25 @@
         });
         $A.enqueueAction(showRec);
     },
+    getCount : function(component, event, helper) {
+        var a = component.get("c.totalCount");
+        a.setParams({numBathrooms : component.get("v.oldnumBath"), numBedrooms : component.get("v.oldnumBed"), maxRent : component.get("v.oldnumRent")});
+        a.setCallback(this, function(response){
+           component.set("v.total", response.getReturnValue()); 
+        });
+        $A.enqueueAction(a);
+    },
     nextProperty : function(component, event, helper) {
 		var action = component.get("c.getProperty");
         var size = component.get("v.OffsetSize");
+        var maxNext = component.get("v.total");
+        if(size < maxNext - 1){
+            size += 1;
+        } else{
+            size = maxNext - 1;
+        }
         action.setParams({numBathrooms : component.get("v.oldnumBath"), numBedrooms : component.get("v.oldnumBed"), maxRent : component.get("v.oldnumRent"), setsize : size});
-        size += 1;
+        
         action.setCallback(this, function(response) {
             component.set("v.OffsetSize", size);
             component.set("v.properties", response.getReturnValue());
@@ -23,7 +37,7 @@
     previousProperty : function(component, event) {
 		var getList = component.get("c.getProperty");
         var size = component.get("v.OffsetSize");
-        if(oss > 1) {
+        if(size > 1) {
         size -= 1;
         } else {
             size = 1;
@@ -50,8 +64,7 @@
         getList.setParams({numBathrooms : getBathList, numBedrooms : getBathList, maxRent : getRentAmount, setsize : "v.OffsetSize"}); 
         getList.setCallback(this, function(response) {
             component.set("v.OffsetSize", 0);
-            component.set("v.examples", response.getReturnValue());
-            
+            component.set("v.properties", response.getReturnValue()); 
         });
         $A.enqueueAction(getList);
     }
